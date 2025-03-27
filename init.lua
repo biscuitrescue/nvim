@@ -89,3 +89,4 @@ require("cafo.lazy")
 require 'colorizer'.setup()
 
 vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
