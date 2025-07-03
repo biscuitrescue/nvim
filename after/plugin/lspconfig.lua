@@ -1,30 +1,25 @@
--- 🌟 LSP Setup using Neovim 0.10+ API
+-- 🌟 Setup blink.cmp FIRST to hook into LSP
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+-- 🌟 Common on_attach for keymaps
 local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
-  local keymap = vim.keymap.set
+  local map = vim.keymap.set
 
   -- LSP keymaps
-  keymap("n", "gd", vim.lsp.buf.definition, opts)
-  keymap("n", "K", vim.lsp.buf.hover, opts)
-  keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
-  keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-  keymap("n", "gr", vim.lsp.buf.references, opts)
-  keymap("n", "[d", vim.diagnostic.goto_prev, opts)
-  keymap("n", "]d", vim.diagnostic.goto_next, opts)
+  map("n", "gd", vim.lsp.buf.definition, opts)
+  map("n", "K", vim.lsp.buf.hover, opts)
+  map("n", "<leader>rn", vim.lsp.buf.rename, opts)
+  map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  map("n", "gr", vim.lsp.buf.references, opts)
+  map("n", "[d", vim.diagnostic.goto_prev, opts)
+  map("n", "]d", vim.diagnostic.goto_next, opts)
 end
 
 -- 🦀 Rust
 vim.lsp.config["rust_analyzer"] = {
   capabilities = capabilities,
   on_attach = on_attach,
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = { allFeatures = true },
-      checkOnSave = { command = "clippy" },
-    },
-  },
 }
 vim.lsp.enable("rust_analyzer")
 
@@ -48,3 +43,24 @@ vim.lsp.config["zls"] = {
   on_attach = on_attach,
 }
 vim.lsp.enable("zls")
+
+-- 🌙 Lua
+vim.lsp.config["lua_ls"] = {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } }, -- suppress "vim" undefined warnings
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  },
+}
+vim.lsp.enable("lua_ls")
+
+-- ❄️ Nix
+vim.lsp.config["nil_ls"] = {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+vim.lsp.enable("nil_ls")

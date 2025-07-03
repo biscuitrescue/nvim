@@ -84,9 +84,11 @@ vim.filetype.add {
   },
 }
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 require("cafo.remap")
 require("cafo.lazy")
 require 'colorizer'.setup()
 
-vim.cmd.colorscheme("kanagawa-dragon")
-vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+vim.cmd.colorscheme("onedark")
+-- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
