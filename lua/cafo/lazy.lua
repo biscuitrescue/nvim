@@ -349,8 +349,7 @@ require("lazy").setup({
     },
     {
       'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
       -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
       ---@module 'render-markdown'
       ---@type render.md.UserConfig
@@ -369,12 +368,10 @@ require("lazy").setup({
         require("persistence").setup()
       end,
     },
-    -- {
-    --   'nvim-lualine/lualine.nvim',
-    --   dependencies = { 'kyazdani42/nvim-web-devicons'}
-    -- },
-    { 'echasnovski/mini.nvim', version = false },
-    -- themes
+    {
+      'nvim-lualine/lualine.nvim',
+      dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    },
     {
       "olimorris/onedarkpro.nvim",
       -- priority = 1000, -- Ensure it loads first
