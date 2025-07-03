@@ -241,18 +241,21 @@ require("lazy").setup({
       end
     },
 
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lua'},
-    {'rafamadriz/friendly-snippets'},
-    {'L3MON4D3/LuaSnip'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'williamboman/mason.nvim'},
+    -- LSP
+    {
+      "neovim/nvim-lspconfig",
+    },
+
+    -- Blink.cmp for completions
+    {
+      "saghen/blink.cmp",
+      version = "*", -- Always use latest
+      opts = {
+        keymap = { preset = "default" },
+        sources = { default = { "lsp", "buffer", "path", "snippets" } },
+        fuzzy = { implementation = "prefer_rust_with_warning" },
+      },
+    },
     {
       'mrcjkb/rustaceanvim',
       version = '^4', -- Recommended
