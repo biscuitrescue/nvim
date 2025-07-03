@@ -43,8 +43,7 @@ require("lazy").setup({
     keys = {
       -- Top Pickers & Explorer
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-      -- { "<leader>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-      { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
       { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
@@ -52,10 +51,10 @@ require("lazy").setup({
       -- find
       { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+      { "<leader>.", function() Snacks.picker.files() end, desc = "Find Files" },
       { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
       { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
-      { "<leader>.", function() Snacks.picker.recent({filter = {cwd = true}}) end, desc = "Recent" },
+      { "<leader>,", function() Snacks.picker.recent({filter = {cwd = true}}) end, desc = "Recent" },
       -- git
       { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
       { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
@@ -370,28 +369,12 @@ require("lazy").setup({
         require("persistence").setup()
       end,
     },
-    {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'kyazdani42/nvim-web-devicons'}
-    },
+    -- {
+    --   'nvim-lualine/lualine.nvim',
+    --   dependencies = { 'kyazdani42/nvim-web-devicons'}
+    -- },
+    { 'echasnovski/mini.nvim', version = false },
     -- themes
-    {
-      "neanias/everforest-nvim",
-      version = false,
-      lazy = true,
-      priority = 1000, -- make sure to load this before all the other start plugins
-      config = function()
-        require("everforest").setup({
-          background = "medium",
-          transparent_background_level = 0,
-          italics = true,
-          disable_italic_comments = false,
-          on_highlights = function(hl, _)
-            hl["@string.special.symbol.ruby"] = { link = "@field" }
-          end
-        })
-      end,
-    },
     {
       "olimorris/onedarkpro.nvim",
       -- priority = 1000, -- Ensure it loads first
@@ -400,10 +383,14 @@ require("lazy").setup({
     { "catppuccin/nvim", name = "catppuccin", lazy = true },
     {"rebelot/kanagawa.nvim", lazy=true},
     {"alexmozaidze/palenight.nvim", lazy=true},
-    -- 'JoosepAlviste/palenightfall.nvim',
-    -- 'drewtempelmeyer/palenight.vim',
     {
       'Mofiqul/dracula.nvim',
       lazy=true,
+    },
+    {
+      "thesimonho/kanagawa-paper.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
     },
   })

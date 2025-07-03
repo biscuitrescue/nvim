@@ -90,5 +90,5 @@ require("cafo.remap")
 require("cafo.lazy")
 require 'colorizer'.setup()
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("kanagawa-paper-ink")
 -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
