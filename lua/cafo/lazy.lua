@@ -188,8 +188,12 @@ require("lazy").setup({
     lazy = true,
     cmd = 'UndotreeToggle'
   },
+
+  -- git
   'tpope/vim-fugitive',
   'nvim-lua/plenary.nvim',
+  "sindrets/diffview.nvim",
+
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -203,7 +207,7 @@ require("lazy").setup({
     end
   },
 
-  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+  -- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
   {
     'romgrk/barbar.nvim',

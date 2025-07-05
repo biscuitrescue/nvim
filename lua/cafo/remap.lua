@@ -30,6 +30,9 @@ map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
+set("n", "<leader>go", ":DiffviewOpen<CR>")
+set("n", "<leader>gc", ":DiffviewClose<CR>")
+set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 set("x", "<leader>p", [["_dP]])
 set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -42,7 +45,6 @@ set("n", ";", ":")
 set("n", "<leader>cd", ":cd ")
 set("n", "<leader>wv", ":vs<CR>")
 set("n", "<leader>w", "<C-w>")
-set("n", "<leader>zz", ":ZenMode<CR>")
 
 set("n", "<leader>op", ":e ")
 
