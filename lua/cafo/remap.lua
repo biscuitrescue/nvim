@@ -32,7 +32,7 @@ set("v", "K", ":m '<-2<CR>gv=gv")
 
 set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 set("x", "<leader>p", [["_dP]])
-set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 set("n", "<leader>c", "<cmd>!clang %<CR>", { silent = true })
 set("n", "<leader>C", "<cmd>!clang++ %<CR>", { silent = true })

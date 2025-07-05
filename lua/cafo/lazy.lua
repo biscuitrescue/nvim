@@ -64,31 +64,31 @@ require("lazy").setup({
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
       -- Grep
-      { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-      { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
-      { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
-      { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+      { "<leader>tb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+      { "<leader>tB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+      { "<leader>tg", function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<leader>tw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
       -- search
-      { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
-      { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
-      { "<leader>sa", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
-      { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-      { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
-      { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
-      { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
-      { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
-      { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
-      { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
-      { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
-      { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
-      { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-      { "<leader>sl", function() Snacks.picker.loclist() end, desc = "Location List" },
-      { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
-      { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
-      { "<leader>sp", function() Snacks.picker.lazy() end, desc = "Search for Plugin Spec" },
-      { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
-      { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
-      { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+      { '<leader>t"', function() Snacks.picker.registers() end, desc = "Registers" },
+      { '<leader>t/', function() Snacks.picker.search_history() end, desc = "Search History" },
+      { "<leader>ta", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
+      { "<leader>tb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+      { "<leader>tc", function() Snacks.picker.command_history() end, desc = "Command History" },
+      { "<leader>tC", function() Snacks.picker.commands() end, desc = "Commands" },
+      { "<leader>td", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+      { "<leader>tD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+      { "<leader>th", function() Snacks.picker.help() end, desc = "Help Pages" },
+      { "<leader>tH", function() Snacks.picker.highlights() end, desc = "Highlights" },
+      { "<leader>ti", function() Snacks.picker.icons() end, desc = "Icons" },
+      { "<leader>tj", function() Snacks.picker.jumps() end, desc = "Jumps" },
+      { "<leader>tk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+      { "<leader>tl", function() Snacks.picker.loclist() end, desc = "Location List" },
+      { "<leader>tm", function() Snacks.picker.marks() end, desc = "Marks" },
+      { "<leader>tM", function() Snacks.picker.man() end, desc = "Man Pages" },
+      { "<leader>tp", function() Snacks.picker.lazy() end, desc = "Search for Plugin Spec" },
+      { "<leader>tq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+      { "<leader>tR", function() Snacks.picker.resume() end, desc = "Resume" },
+      { "<leader>tu", function() Snacks.picker.undo() end, desc = "Undo History" },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
       -- LSP
       { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
@@ -96,8 +96,8 @@ require("lazy").setup({
       { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
       { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
       { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
-      { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
-      { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+      { "<leader>ts", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+      { "<leader>tS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
       -- Other
       { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
       { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
@@ -189,6 +189,7 @@ require("lazy").setup({
     cmd = 'UndotreeToggle'
   },
   'tpope/vim-fugitive',
+  'nvim-lua/plenary.nvim',
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -230,11 +231,11 @@ require("lazy").setup({
   },
   -- LSP
 
-    {
-      "jinzhongjia/LspUI.nvim",
-      branch = "main",
-      config = function()
-        -- require("LspUI").setup({
+  {
+    "jinzhongjia/LspUI.nvim",
+    branch = "main",
+    config = function()
+      -- require("LspUI").setup({
         --   -- config options go here
         -- })
       end
@@ -253,7 +254,7 @@ require("lazy").setup({
       config = function()
         require("blink.cmp").setup({
           -- completion = { list = { selection = { preselect = false }}}
-          keymap = { 
+          keymap = {
             preset = "none",
             ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
             ['<C-e>'] = { 'hide', 'fallback' },
@@ -277,11 +278,11 @@ require("lazy").setup({
         })
       end,
     },
-    {
-      'mrcjkb/rustaceanvim',
-      version = '^4', -- Recommended
-      ft = { 'rust' },
-    },
+    -- {
+    --   'mrcjkb/rustaceanvim',
+    --   version = '^4', -- Recommended
+    --   ft = { 'rust' },
+    -- },
     {
       "ray-x/go.nvim",
       dependencies = {  -- optional packages
@@ -309,23 +310,23 @@ require("lazy").setup({
         })
       end
     },
-{
-  "kdheepak/lazygit.nvim",
-  lazy = true,
-  cmd = {
-    "LazyGit",
-    "LazyGitConfig",
-    "LazyGitCurrentFile",
-    "LazyGitFilter",
-    "LazyGitFilterCurrentFile",
-  },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
-  keys = {
-    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-  }
-},
+    -- {
+    --   "kdheepak/lazygit.nvim",
+    --   lazy = true,
+    --   cmd = {
+    --     "LazyGit",
+    --     "LazyGitConfig",
+    --     "LazyGitCurrentFile",
+    --     "LazyGitFilter",
+    --     "LazyGitFilterCurrentFile",
+    --   },
+    --   dependencies = {
+    --     "nvim-lua/plenary.nvim",
+    --   },
+    --   keys = {
+    --     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    --   }
+    -- },
     -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     {
       "folke/noice.nvim",
@@ -356,10 +357,20 @@ require("lazy").setup({
       opts = {},
     },
 
+    {
+      'echasnovski/mini.surround',
+      version = false,
+      config = function()
+        require('mini.surround').setup()
+      end
+    },
+
+    {
     "folke/trouble.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },
     opts = {
     },
+  },
     {
       "folke/persistence.nvim",
       event = "BufReadPre", -- this will only start session saving when an actual file was opened
@@ -379,14 +390,13 @@ require("lazy").setup({
     },
     { "catppuccin/nvim", name = "catppuccin", lazy = true },
     {"rebelot/kanagawa.nvim", lazy=true},
-    {"alexmozaidze/palenight.nvim", lazy=true},
     {
       'Mofiqul/dracula.nvim',
       lazy=true,
     },
     {
       "thesimonho/kanagawa-paper.nvim",
-      lazy = false,
+      lazy = true,
       priority = 1000,
       opts = {},
     },
