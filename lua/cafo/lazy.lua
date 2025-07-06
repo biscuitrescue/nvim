@@ -20,7 +20,7 @@ require("lazy").setup({
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
-      dashboard = { enabled = true },
+      dashboard = { enabled = false },
       explorer = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
@@ -359,6 +359,12 @@ require("lazy").setup({
       ---@module 'render-markdown'
       ---@type render.md.UserConfig
       opts = {},
+      config = function ()
+        require('render-markdown').setup({
+          html = { enabled = false },
+          latex = { enabled = false }
+        })
+      end
     },
 
     {
