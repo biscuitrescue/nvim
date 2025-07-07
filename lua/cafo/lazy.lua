@@ -255,6 +255,7 @@ require("lazy").setup({
       "saghen/blink.cmp",
       lazy = false, -- Force it to load immediately
       priority = 1000, -- Make sure it's before LSP
+      build = 'cargo build --release',
       config = function()
         require("blink.cmp").setup({
           -- completion = { list = { selection = { preselect = false }}}
@@ -403,6 +404,12 @@ require("lazy").setup({
     {
       'Mofiqul/dracula.nvim',
       lazy=true,
+    },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
     },
     {
       "thesimonho/kanagawa-paper.nvim",

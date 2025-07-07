@@ -90,5 +90,5 @@ require("cafo.remap")
 require("cafo.lazy")
 require 'colorizer'.setup()
 
-vim.cmd.colorscheme("kanagawa-paper")
+vim.cmd.colorscheme("kanagawa-paper-canvas")
 -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
