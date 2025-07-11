@@ -283,25 +283,21 @@ require("lazy").setup({
         })
       end,
     },
+
     -- {
-    --   'mrcjkb/rustaceanvim',
-    --   version = '^4', -- Recommended
-    --   ft = { 'rust' },
+    --   "ray-x/go.nvim",
+    --   dependencies = {  -- optional packages
+    --     "ray-x/guihua.lua",
+    --     "neovim/nvim-lspconfig",
+    --     "nvim-treesitter/nvim-treesitter",
+    --   },
+    --   config = function()
+    --     require("go").setup()
+    --   end,
+    --   event = {"CmdlineEnter"},
+    --   ft = {"go", 'gomod'},
+    --   build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
     -- },
-    {
-      "ray-x/go.nvim",
-      dependencies = {  -- optional packages
-        "ray-x/guihua.lua",
-        "neovim/nvim-lspconfig",
-        "nvim-treesitter/nvim-treesitter",
-      },
-      config = function()
-        require("go").setup()
-      end,
-      event = {"CmdlineEnter"},
-      ft = {"go", 'gomod'},
-      build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-    },
 
     {
       "numToStr/FTerm.nvim",
@@ -315,24 +311,6 @@ require("lazy").setup({
         })
       end
     },
-    -- {
-    --   "kdheepak/lazygit.nvim",
-    --   lazy = true,
-    --   cmd = {
-    --     "LazyGit",
-    --     "LazyGitConfig",
-    --     "LazyGitCurrentFile",
-    --     "LazyGitFilter",
-    --     "LazyGitFilterCurrentFile",
-    --   },
-    --   dependencies = {
-    --     "nvim-lua/plenary.nvim",
-    --   },
-    --   keys = {
-    --     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    --   }
-    -- },
-    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     {
       "folke/noice.nvim",
       dependencies = {
@@ -363,7 +341,11 @@ require("lazy").setup({
       config = function ()
         require('render-markdown').setup({
           html = { enabled = false },
-          latex = { enabled = false }
+          latex = { enabled = true },
+          completions = {
+            blink = { enabled = true },
+            lsp = { enabled = true }
+          },
         })
       end
     },
@@ -390,27 +372,18 @@ require("lazy").setup({
         require("persistence").setup()
       end,
     },
+
+    -- UI
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     },
     {
       "olimorris/onedarkpro.nvim",
-      -- priority = 1000, -- Ensure it loads first
       lazy=true,
     },
     { "catppuccin/nvim", name = "catppuccin", lazy = true },
     {"rebelot/kanagawa.nvim", lazy=true},
-    {
-      'Mofiqul/dracula.nvim',
-      lazy=true,
-    },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
-    },
     {
       "thesimonho/kanagawa-paper.nvim",
       lazy = true,

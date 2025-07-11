@@ -2,6 +2,8 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
+g.mapleader = " "
+
 opt.signcolumn = 'yes'
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
@@ -47,7 +49,6 @@ vim.api.nvim_set_hl(0, 'Comment', { italic=true })
 -- vim.cmd("hi NvimTreeNormal guibg=NONE")
 -- vim.api.nvim_set_hl(0, 'Comment', { italic=true })
 
-g.mapleader = " "
 
 vim.api.nvim_create_autocmd({"BufReadPost"}, {
   pattern = {"*"},
@@ -58,20 +59,20 @@ vim.api.nvim_create_autocmd({"BufReadPost"}, {
   end
 })
 
-if vim.g.neovide then
-  -- vim.o.guifont = "operator mono:h11"
-  vim.o.guifont = "jetbrainsmono nerd font:h11"
-  vim.opt.linespace = 0
-  vim.g.neovide_scale_factor = 1.0
-  vim.g.neovide_padding_top = 1
-  vim.g.neovide_padding_bottom = 1
-  vim.g.neovide_padding_right = 1
-  vim.g.neovide_padding_left = 1
+if g.neovide then
+  -- o.guifont = "operator mono:h11"
+  o.guifont = "jetbrainsmono nerd font:h11"
+  opt.linespace = 0
+  g.neovide_scale_factor = 1.0
+  g.neovide_padding_top = 1
+  g.neovide_padding_bottom = 1
+  g.neovide_padding_right = 1
+  g.neovide_padding_left = 1
 
-  vim.g.neovide_cursor_vfx_particle_density = 10.0
-  vim.g.neovide_cursor_vfx_mode = "railgun"
-  vim.g.neovide_opacity = 0.9
-  vim.g.neovide_normal_opacity = 0.9
+  g.neovide_cursor_vfx_particle_density = 10.0
+  g.neovide_cursor_vfx_mode = "railgun"
+  g.neovide_opacity = 0.9
+  g.neovide_normal_opacity = 0.9
 end
 
 vim.filetype.add {
@@ -84,11 +85,11 @@ vim.filetype.add {
   },
 }
 
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+opt.completeopt = { "menu", "menuone", "noselect" }
 
 require("cafo.remap")
 require("cafo.lazy")
 require 'colorizer'.setup()
 
-vim.cmd.colorscheme("kanagawa-paper-canvas")
--- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+vim.cmd.colorscheme("kanagawa-paper")
+vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
