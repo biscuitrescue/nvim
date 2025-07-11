@@ -359,11 +359,18 @@ require("lazy").setup({
     },
 
     {
-    "folke/trouble.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
-    opts = {
+      "folke/trouble.nvim",
+      dependencies = { "kyazdani42/nvim-web-devicons" },
+      opts = {
+      },
     },
-  },
+    {
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+
+      }
+    },
     {
       "folke/persistence.nvim",
       event = "BufReadPre", -- this will only start session saving when an actual file was opened
