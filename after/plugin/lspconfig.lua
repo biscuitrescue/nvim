@@ -1,4 +1,27 @@
--- 🌟 Setup blink.cmp FIRST to hook into LSP
+require("blink.cmp").setup({
+  -- completion = { list = { selection = { preselect = false }}}
+  keymap = {
+    preset = "enter",
+    -- ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+    -- ['<C-e>'] = { 'hide', 'fallback' },
+    -- ['<CR>'] = { 'accept', 'fallback' },
+    --
+    ['<Tab>'] = { 'select_next', 'fallback' },
+    ['<S-Tab>'] = { 'select_prev', 'fallback' },
+    --
+    -- ['<Up>'] = { 'select_prev', 'fallback' },
+    -- ['<Down>'] = { 'select_next', 'fallback' },
+    ['<C-p>'] = { 'snippet_forward', 'fallback_to_mappings' },
+    ['<C-n>'] = { 'snippet_backward', 'fallback_to_mappings' },
+    --
+    -- ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+    -- ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+    --
+    -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+  },
+  sources = { default = { "lsp", "buffer", "path", "snippets" } },
+  fuzzy = { implementation = "prefer_rust_with_warning" },
+})
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- 🌟 Common on_attach for keymaps

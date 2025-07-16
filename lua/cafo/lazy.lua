@@ -256,32 +256,6 @@ require("lazy").setup({
       lazy = false, -- Force it to load immediately
       priority = 1000, -- Make sure it's before LSP
       build = 'cargo build --release',
-      config = function()
-        require("blink.cmp").setup({
-          -- completion = { list = { selection = { preselect = false }}}
-          keymap = {
-            preset = "none",
-            ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-            ['<C-e>'] = { 'hide', 'fallback' },
-            ['<CR>'] = { 'accept', 'fallback' },
-
-            ['<Tab>'] = { 'snippet_forward', 'fallback' },
-            ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-
-            ['<Up>'] = { 'select_prev', 'fallback' },
-            ['<Down>'] = { 'select_next', 'fallback' },
-            ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
-            ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
-
-            ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-            ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-
-            ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
-          },
-          sources = { default = { "lsp", "buffer", "path", "snippets" } },
-          fuzzy = { implementation = "prefer_rust_with_warning" },
-        })
-      end,
     },
 
     -- {
@@ -396,5 +370,11 @@ require("lazy").setup({
       lazy = true,
       priority = 1000,
       opts = {},
+    },
+    -- Using lazy.nvim
+    {
+      "cdmill/neomodern.nvim",
+      lazy = false,
+      priority = 1000,
     },
   })
