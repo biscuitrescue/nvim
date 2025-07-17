@@ -30,6 +30,7 @@ require("lazy").setup({
       },
       picker = { enabled = true },
       quickfile = { enabled = true },
+      dim = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
       statuscolumn = { enabled = true },
@@ -47,7 +48,7 @@ require("lazy").setup({
       { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
       { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-      { "<C-n>", function() Snacks.explorer() end, desc = "File Explorer" },
+      { "<leader>op", function() Snacks.explorer() end, desc = "File Explorer" },
       -- find
       { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -220,12 +221,6 @@ require("lazy").setup({
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end,
-  },
   {'norcalli/nvim-colorizer.lua'},
   {
     'notjedi/nvim-rooter.lua',
@@ -257,21 +252,6 @@ require("lazy").setup({
       priority = 1000, -- Make sure it's before LSP
       build = 'cargo build --release',
     },
-
-    -- {
-    --   "ray-x/go.nvim",
-    --   dependencies = {  -- optional packages
-    --     "ray-x/guihua.lua",
-    --     "neovim/nvim-lspconfig",
-    --     "nvim-treesitter/nvim-treesitter",
-    --   },
-    --   config = function()
-    --     require("go").setup()
-    --   end,
-    --   event = {"CmdlineEnter"},
-    --   ft = {"go", 'gomod'},
-    --   build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-    -- },
 
     {
       "numToStr/FTerm.nvim",
@@ -365,13 +345,6 @@ require("lazy").setup({
     },
     { "catppuccin/nvim", name = "catppuccin", lazy = true },
     {"rebelot/kanagawa.nvim", lazy=true},
-    {
-      "thesimonho/kanagawa-paper.nvim",
-      lazy = true,
-      priority = 1000,
-      opts = {},
-    },
-    -- Using lazy.nvim
     {
       "cdmill/neomodern.nvim",
       lazy = false,
