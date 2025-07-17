@@ -308,7 +308,14 @@ require("lazy").setup({
       'echasnovski/mini.surround',
       version = false,
       config = function()
-        require('mini.surround').setup()
+        require('mini.surround').setup({
+          custom_surroundings = {
+            -- Remove space inside () [] {}
+            ['('] = { output = { left = '(', right = ')' } },
+            ['['] = { output = { left = '[', right = ']' } },
+            ['{'] = { output = { left = '{', right = '}' } },
+          },
+        })
       end
     },
 
@@ -324,6 +331,12 @@ require("lazy").setup({
       opts = {
 
       }
+    },
+    {
+      "nvimtools/none-ls.nvim",
+      dependencies = {
+        "nvimtools/none-ls-extras.nvim",
+      },
     },
     {
       "folke/persistence.nvim",

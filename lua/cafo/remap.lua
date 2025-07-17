@@ -2,6 +2,8 @@ local set = vim.keymap.set
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+-- Lsp float show 
+set({"n", "v", "x", "i"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
 -- Modes for ipad when ssh
 set({"n", "v", "x", "i"}, "<C-`>", "<esc>")
 
