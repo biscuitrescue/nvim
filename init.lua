@@ -4,7 +4,7 @@ local g = vim.g
 
 g.mapleader = " "
 
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.encoding = "UTF-8"
@@ -21,7 +21,7 @@ opt.laststatus = 3
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
-o.statusline = o.statusline .. '%#warningmsg#' .. '%*'
+o.statusline = o.statusline .. "%#warningmsg#" .. "%*"
 opt.linebreak = true
 opt.termguicolors = true
 -- g.term = "screen-256color"
@@ -38,25 +38,23 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 opt.cursorline = true
 opt.cursorcolumn = false
-opt.background = 'dark'
+opt.background = "dark"
 opt.conceallevel = 2
 
-
-vim.api.nvim_set_hl(0, 'Comment', { italic=true })
+vim.api.nvim_set_hl(0, "Comment", { italic = true })
 
 -- vim.cmd("hi Comment guifg=darkgrey")
 -- vim.cmd("IndentLinesEnable")
 -- vim.cmd("hi NvimTreeNormal guibg=NONE")
 -- vim.api.nvim_set_hl(0, 'Comment', { italic=true })
 
-
-vim.api.nvim_create_autocmd({"BufReadPost"}, {
-  pattern = {"*"},
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*" },
   callback = function()
     if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
       vim.api.nvim_exec("normal! g'\"", false)
     end
-  end
+  end,
 })
 
 if g.neovide then
@@ -75,38 +73,33 @@ if g.neovide then
   g.neovide_normal_opacity = 0.9
 end
 
-vim.filetype.add {
-  extension = { rasi = 'rasi' },
+vim.filetype.add({
+  extension = { rasi = "rasi" },
   pattern = {
-    ['.*/waybar/config'] = 'jsonc',
-    ['.*/mako/config'] = 'dosini',
-    ['.*/kitty/*.conf'] = 'bash',
-    ['.*/hypr/.*%.conf'] = 'hyprlang',
+    [".*/waybar/config"] = "jsonc",
+    [".*/mako/config"] = "dosini",
+    [".*/kitty/*.conf"] = "bash",
+    [".*/hypr/.*%.conf"] = "hyprlang",
   },
-}
-
--- Use 4 spaces for Python
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "python",
-  callback = function()
-    vim.bo.expandtab = true  -- Use spaces not tabs
-    vim.bo.shiftwidth = 4    -- Indent width
-    vim.bo.tabstop = 4       -- Tabs appear as 4 spaces
-    vim.bo.softtabstop = 4
-    vim.bo.autoindent = true
-    vim.bo.smartindent = false  -- Let Black handle indentation rules
-    vim.keymap.set("n", "=", function()
-      vim.lsp.buf.format({ async = true })
-    end, { buffer = true })
-  end,
 })
-vim.g.python_recommended_style = 0
 
--- error float on hover
+vim.o.updatetime = 300 -- adjust how fast CursorHold triggers
+
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
-    vim.diagnostic.open_float(nil, { focus = false })
-    o.updatetime = 300
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = "rounded",
+      source = "always",
+      prefix = "",
+      scope = "line", -- ✅ show diagnostics for entire line
+    }
+
+    -- Check if there are diagnostics on the current line
+    if #vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 }) > 0 then
+      vim.diagnostic.open_float(nil, opts)
+    end
   end,
 })
 
@@ -114,7 +107,7 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 require("cafo.remap")
 require("cafo.lazy")
-require 'colorizer'.setup()
+require("colorizer").setup()
 
-vim.cmd.colorscheme("hojicha")
+vim.cmd.colorscheme("roseprime")
 -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')

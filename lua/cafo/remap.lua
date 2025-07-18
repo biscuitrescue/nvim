@@ -6,7 +6,7 @@ local opts = { noremap = true, silent = true }
 set({"n", "v", "x"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
 
 -- Navigation to 0 and $
-set({"n", "v", "x"}, "<A-w>", "^")
+  set({"n", "v", "x"}, "<A-w>", "^")
 set({"n", "v", "x"}, "<A-e>", "$")
  
 -- Move to previous/next
@@ -15,8 +15,8 @@ set({"n", "v", "x", "i"}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
 
 -- Re-order to previous/next
-set({"n", "v", "x", "i"}, '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-set({"n", "v", "x", "i"}, '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+set({"n", "v", "x"}, '<leader>b<', '<Cmd>BufferMovePrevious<CR>', opts)
+set({"n", "v", "x"}, '<leader>b>', '<Cmd>BufferMoveNext<CR>', opts)
 
 -- Goto buffer in position...
 set({"n", "v", "x", "i"}, '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
@@ -51,8 +51,6 @@ set("n", ";", ":")
 set("n", "<leader>cd", ":cd ")
 set("n", "<leader>wv", ":vs<CR>")
 set("n", "<leader>w", "<C-w>")
-
-set("n", "<leader>op", ":e ")
 
 -- Buffer
 --
