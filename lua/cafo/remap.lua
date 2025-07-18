@@ -3,21 +3,21 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Lsp float show 
-set({"n", "v", "x", "i"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
--- Modes for ipad when ssh
-set({"n", "v", "x", "i"}, "<C-`>", "<esc>")
+set({"n", "v", "x"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
 
+-- Navigation to 0 and $
+set({"n", "v", "x"}, "<A-w>", "^")
+set({"n", "v", "x"}, "<A-e>", "$")
+ 
 -- Move to previous/next
-set({"n", "v", "x", "i"}, "<A-w>", "^")
-set({"n", "v", "x", "i"}, "<A-e>", "$")
--- map('x', '<A-w>', '^', opts)
--- map('x', '<A-e>', '$', opts)
 set({"n", "v", "x", "i"}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
+
 -- Re-order to previous/next
 set({"n", "v", "x", "i"}, '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 set({"n", "v", "x", "i"}, '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+
 -- Goto buffer in position...
 set({"n", "v", "x", "i"}, '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
@@ -29,6 +29,7 @@ set({"n", "v", "x", "i"}, '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-0>', '<Cmd>BufferLast<CR>', opts)
+
 -- Pin/unpin buffer
 set({"n", "v", "x", "i"}, '<A-p>', '<Cmd>BufferPin<CR>', opts)
 
