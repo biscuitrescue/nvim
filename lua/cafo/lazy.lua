@@ -208,13 +208,13 @@ require("lazy").setup({
     end
   },
 
-  -- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+  -- 'echasnovski/mini.icons'
 
   {
     'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+      'nvim-tree/nvim-web-devicons'
     },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {
@@ -234,9 +234,9 @@ require("lazy").setup({
     "jinzhongjia/LspUI.nvim",
     branch = "main",
     config = function()
-      -- require("LspUI").setup({
-        --   -- config options go here
-        -- })
+      require("LspUI").setup({
+          -- config options go here
+        })
       end
     },
 
@@ -288,7 +288,6 @@ require("lazy").setup({
     {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
       ---@module 'render-markdown'
       ---@type render.md.UserConfig
       opts = {},
@@ -321,7 +320,7 @@ require("lazy").setup({
 
     {
       "folke/trouble.nvim",
-      dependencies = { "kyazdani42/nvim-web-devicons" },
+      dependencies = { 'echasnovski/mini.icons' },
       opts = {
       },
     },
@@ -352,12 +351,9 @@ require("lazy").setup({
       'nvim-lualine/lualine.nvim',
       dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     },
-    {
-      "olimorris/onedarkpro.nvim",
-      lazy=true,
-    },
-    { "catppuccin/nvim", name = "catppuccin", lazy = true },
-    {"rebelot/kanagawa.nvim", lazy=true},
+    { "olimorris/onedarkpro.nvim", lazy=true },
+    { "thesimonho/kanagawa-paper.nvim", lazy = true };
+    { "rebelot/kanagawa.nvim", lazy=true },
     {
       "cdmill/neomodern.nvim",
       lazy = false,

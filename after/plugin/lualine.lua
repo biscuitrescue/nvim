@@ -118,11 +118,10 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 -- Author: shadmansaleh
 -- Credit: glepnir
 local lualine = require('lualine')
-local colors_scheme = require("kanagawa.colors").setup({theme = 'wave'})
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#161616',
+  bg       = '#222222',
   fg       = '#adacac',
   yellow   = '#8a968f',
   cyan     = '#a18b7f',
