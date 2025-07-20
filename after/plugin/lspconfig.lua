@@ -1,5 +1,5 @@
 require("blink.cmp").setup({
-  -- completion = { list = { selection = { preselect = false }}}
+  completion = { list = { selection = { preselect = false }}},
   keymap = {
     preset = "enter",
     -- ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },

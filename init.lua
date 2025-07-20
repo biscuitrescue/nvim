@@ -83,7 +83,7 @@ vim.filetype.add({
   },
 })
 
-vim.o.updatetime = 300 -- adjust how fast CursorHold triggers
+o.updatetime = 300
 
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
@@ -93,14 +93,28 @@ vim.api.nvim_create_autocmd("CursorHold", {
       border = "rounded",
       source = "always",
       prefix = "",
-      scope = "line", -- ✅ show diagnostics for entire line
+      scope = "line",
     }
 
-    -- Check if there are diagnostics on the current line
     if #vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 }) > 0 then
       vim.diagnostic.open_float(nil, opts)
     end
   end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        vim.bo.expandtab = true  -- Use spaces not tabs
+        vim.bo.shiftwidth = 4    -- Indent width
+        vim.bo.tabstop = 4       -- Tabs appear as 4 spaces
+        vim.bo.softtabstop = 4
+        vim.bo.autoindent = true
+        vim.bo.smartindent = false  -- Let Black handle indentation rules
+        vim.keymap.set("n", "=", function()
+            vim.lsp.buf.format({ async = true })
+        end, { buffer = true })
+    end,
 })
 
 opt.completeopt = { "menu", "menuone", "noselect" }
@@ -109,5 +123,5 @@ require("cafo.remap")
 require("cafo.lazy")
 require("colorizer").setup()
 
-vim.cmd.colorscheme("hojicha")
+vim.cmd.colorscheme("roseprime")
 -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
