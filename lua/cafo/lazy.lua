@@ -176,6 +176,7 @@ require("lazy").setup({
     -- UI
     { 'echasnovski/mini.animate', version = false },
     { 'echasnovski/mini.indentscope', version = false },
+    "nvim-tree/nvim-tree.lua",
     {
       "nvimdev/indentmini.nvim",
       config = function()
