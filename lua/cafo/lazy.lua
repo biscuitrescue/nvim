@@ -37,6 +37,17 @@ require("lazy").setup({
     },
   },
   {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   },
@@ -109,13 +120,13 @@ require("lazy").setup({
         })
       end
     },
-    {
-      "folke/noice.nvim",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-      }
-    },
+    -- {
+    --   "folke/noice.nvim",
+    --   dependencies = {
+    --     -- "MunifTanjim/nui.nvim",
+    --     -- "rcarriga/nvim-notify",
+    --   }
+    -- },
     {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
@@ -176,6 +187,7 @@ require("lazy").setup({
     -- UI
     { 'echasnovski/mini.animate', version = false },
     { 'echasnovski/mini.indentscope', version = false },
+    { 'echasnovski/mini.cursorword', version = false },
     "nvim-tree/nvim-tree.lua",
     {
       "lukas-reineke/indent-blankline.nvim",
