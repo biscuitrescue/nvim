@@ -21,7 +21,13 @@ opt.laststatus = 3
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
-o.statusline = o.statusline .. "%#warningmsg#" .. "%*"
+-- o.statusline = o.statusline .. "%#warningmsg#" .. "%*"
+
+o.statusline = table.concat({
+  " %f",      -- File path relative to CWD
+  " %m",      -- Modified flag
+})
+
 opt.linebreak = true
 opt.termguicolors = true
 -- g.term = "screen-256color"
