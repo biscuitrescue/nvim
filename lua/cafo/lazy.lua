@@ -113,7 +113,7 @@ require("lazy").setup({
       "folke/noice.nvim",
       dependencies = {
         "MunifTanjim/nui.nvim",
-        -- "rcarriga/nvim-notify",
+        "rcarriga/nvim-notify",
       }
     },
     {
@@ -178,16 +178,27 @@ require("lazy").setup({
     { 'echasnovski/mini.indentscope', version = false },
     "nvim-tree/nvim-tree.lua",
     {
-      "nvimdev/indentmini.nvim",
-      config = function()
-        require("indentmini").setup()
-      end
+      "lukas-reineke/indent-blankline.nvim",
+      main = "ibl",
+      ---@module "ibl"
+      ---@type ibl.config
+      opts = {},
     },
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     },
     { "rebelot/kanagawa.nvim", lazy=true },
+    {
+      'goolord/alpha-nvim',
+      dependencies = {
+        'echasnovski/mini.icons',
+        'nvim-lua/plenary.nvim'
+      },
+      config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+      end
+    },
     {
       "cdmill/neomodern.nvim",
       lazy = false,

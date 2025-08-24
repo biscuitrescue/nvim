@@ -125,4 +125,3 @@ require("colorizer").setup()
 
 vim.cmd.colorscheme("hojicha")
 -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-
