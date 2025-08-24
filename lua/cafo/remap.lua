@@ -2,7 +2,7 @@ local set = vim.keymap.set
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-set({"n", "v", "x", "i"}, '<leader>op', '<Cmd>NvimTreeToggle<CR>', opts)
+set({"n", "v", "x"}, '<leader>op', '<Cmd>NvimTreeToggle<CR>', opts)
 
 -- Lsp float show 
 set({"n", "v", "x"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
