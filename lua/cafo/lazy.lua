@@ -174,6 +174,14 @@ require("lazy").setup({
       end,
     },
     -- UI
+    { 'echasnovski/mini.animate', version = false },
+    { 'echasnovski/mini.indentscope', version = false },
+    {
+      "nvimdev/indentmini.nvim",
+      config = function()
+        require("indentmini").setup()
+      end
+    },
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
