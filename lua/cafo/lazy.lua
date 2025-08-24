@@ -71,17 +71,17 @@ require("lazy").setup({
       require("nvim-autopairs").setup {}
     end
   },
-  {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons'
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-    },
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
-  },
+  -- {
+  --   'romgrk/barbar.nvim',
+  --   dependencies = {
+  --     'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+  --     'nvim-tree/nvim-web-devicons'
+  --   },
+  --   init = function() vim.g.barbar_auto_setup = false end,
+  --   opts = {
+  --   },
+  --   version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  -- },
   {'norcalli/nvim-colorizer.lua'},
   {
     'notjedi/nvim-rooter.lua',
@@ -120,13 +120,6 @@ require("lazy").setup({
         })
       end
     },
-    -- {
-    --   "folke/noice.nvim",
-    --   dependencies = {
-    --     -- "MunifTanjim/nui.nvim",
-    --     -- "rcarriga/nvim-notify",
-    --   }
-    -- },
     {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
@@ -186,8 +179,6 @@ require("lazy").setup({
     },
     -- UI
     { 'echasnovski/mini.cursorword', version = false },
-    { 'echasnovski/mini.animate', version = false },
-    { 'echasnovski/mini.indentscope', version = false },
     {
       "goolord/alpha-nvim",
       dependencies = { 'echasnovski/mini.icons' },
