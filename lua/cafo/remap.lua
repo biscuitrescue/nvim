@@ -11,7 +11,6 @@ set({"n", "v", "x"}, "<A-e>", "$")
  
 -- Move to previous/next
 set({"n", "v", "x", "i"}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 set({"n", "v", "x", "i"}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
 
 -- Re-order to previous/next
@@ -40,7 +39,6 @@ set({"n", "v", "x", "i"}, '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Nav
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
-set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 
 set("x", "<leader>p", [["_dP]])

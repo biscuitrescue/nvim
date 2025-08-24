@@ -1,6 +1,6 @@
 require("nvim-possession").setup({
     sessions = {
-        sessions_path = "/home/cafo/.nvim/sessions/",-- folder to look for sessions, must be a valid existing path
+        sessions_path = vim.fn.stdpath('data') .. "/sessions/"
         -- sessions_variable = ... -- defines vim.g[sessions_variable] when a session is loaded
         -- sessions_icon = ...-- string: shows icon both in the prompt and in the statusline
         -- sessions_prompt = ... -- fzf prompt string

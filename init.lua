@@ -4,10 +4,10 @@ local g = vim.g
 
 g.mapleader = " "
 
-opt.signcolumn = "yes"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.encoding = "UTF-8"
+o.winborder = "rounded"
 opt.ignorecase = true
 opt.smartcase = true
 opt.nu = true
@@ -28,7 +28,7 @@ opt.termguicolors = true
 
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undodir = vim.fn.stdpath('data') .. "/undodir"
 opt.undofile = true
 
 opt.hlsearch = false

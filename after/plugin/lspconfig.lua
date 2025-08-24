@@ -39,51 +39,27 @@ local on_attach = function(client, bufnr)
   map("n", "]d", vim.diagnostic.goto_next, opts)
 end
 
--- 🦀 Rust
-vim.lsp.config["rust_analyzer"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-vim.lsp.enable("rust_analyzer")
+-- in lspconfig.lua
+local servers = { "rust_analyzer", "clangd", "pyright", "zls", "nil_ls" }
 
--- 🛠 C/C++
-vim.lsp.config["clangd"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-vim.lsp.enable("clangd")
+for _, server in ipairs(servers) do
+  vim.lsp.config[server] = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+  vim.lsp.enable(server)
+end
 
--- 🐍 Python
-vim.lsp.config["pyright"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-vim.lsp.enable("pyright")
-
--- ⚡ Zig
-vim.lsp.config["zls"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-vim.lsp.enable("zls")
-
--- 🌙 Lua
+-- You can keep custom settings for specific servers, like lua_ls
 vim.lsp.config["lua_ls"] = {
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {
     Lua = {
-      diagnostics = { globals = { "vim" } }, -- suppress "vim" undefined warnings
+      diagnostics = { globals = { "vim" } },
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
   },
 }
 vim.lsp.enable("lua_ls")
-
--- ❄️ Nix
-vim.lsp.config["nil_ls"] = {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-vim.lsp.enable("nil_ls")
