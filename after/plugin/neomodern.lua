@@ -12,7 +12,7 @@ require("neomodern").setup({
   plain_float = false,
   term_colors = true,
   toggle_variant_key = nil,
-  transparent = false,
+  transparent = true,
 
   diagnostics = {
     darker = true, -- Darker colors for diagnostic
@@ -23,10 +23,10 @@ require("neomodern").setup({
     comments = "italic",
     conditionals = "none",
     functions = "none",
-    keywords = "none",
+    keywords = "italic",
     headings = "bold", -- Markdown headings
     operators = "none",
-    keyword_return = "none",
+    keyword_return = "italic",
     strings = "none",
     variables = "none",
   },
