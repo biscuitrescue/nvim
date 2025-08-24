@@ -186,6 +186,19 @@ require("lazy").setup({
     },
     -- UI
     { 'echasnovski/mini.cursorword', version = false },
+    { 'echasnovski/mini.animate', version = false },
+    { 'echasnovski/mini.indentscope', version = false },
+    {
+      "goolord/alpha-nvim",
+      dependencies = { 'echasnovski/mini.icons' },
+      config = function()
+        local startify = require("alpha.themes.startify")
+        startify.file_icons.provider = "mini"
+        require("alpha").setup(
+          startify.config
+        )
+      end,
+    },
     {
       "lukas-reineke/indent-blankline.nvim",
       main = "ibl",
