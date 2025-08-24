@@ -124,4 +124,5 @@ require("cafo.lazy")
 require("colorizer").setup()
 
 vim.cmd.colorscheme("roseprime")
+vim.cmd("hi statusline guibg=None")
 -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')

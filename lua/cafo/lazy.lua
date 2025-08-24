@@ -185,8 +185,6 @@ require("lazy").setup({
       end,
     },
     -- UI
-    { 'echasnovski/mini.animate', version = false },
-    { 'echasnovski/mini.indentscope', version = false },
     { 'echasnovski/mini.cursorword', version = false },
     "nvim-tree/nvim-tree.lua",
     {
@@ -196,10 +194,10 @@ require("lazy").setup({
       ---@type ibl.config
       opts = {},
     },
-    {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    },
+    -- {
+    --   'nvim-lualine/lualine.nvim',
+    --   dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- },
     { "rebelot/kanagawa.nvim", lazy=true },
     {
       'goolord/alpha-nvim',
