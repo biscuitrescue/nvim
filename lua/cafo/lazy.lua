@@ -45,12 +45,9 @@ require("lazy").setup({
     lazy = true,
     cmd = 'UndotreeToggle'
   },
-
   -- git
   'tpope/vim-fugitive',
   'nvim-lua/plenary.nvim',
-  "sindrets/diffview.nvim",
-
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -63,9 +60,6 @@ require("lazy").setup({
       require("nvim-autopairs").setup {}
     end
   },
-
-  -- 'echasnovski/mini.icons'
-
   {
     'romgrk/barbar.nvim',
     dependencies = {
@@ -85,23 +79,17 @@ require("lazy").setup({
     end
   },
   -- LSP
-
   {
     "jinzhongjia/LspUI.nvim",
     branch = "main",
     config = function()
       require("LspUI").setup({
-          -- config options go here
         })
       end
     },
 
     -- LSP
-    {
-      "neovim/nvim-lspconfig",
-    },
-
-    -- Blink.cmp for completions
+    {"neovim/nvim-lspconfig"},
     {
       "saghen/blink.cmp",
       lazy = false, -- Force it to load immediately
@@ -129,19 +117,6 @@ require("lazy").setup({
       }
     },
     {
-      "toppair/peek.nvim",
-      event = { "VeryLazy" },
-      build = "deno task --quiet build",
-      config = function()
-        require("peek").setup({
-          app = { 'brave', '--new-window' },
-
-        })
-        vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-        vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-      end,
-    },
-    {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
       ---@module 'render-markdown'
@@ -158,7 +133,6 @@ require("lazy").setup({
         })
       end
     },
-
     {
       'echasnovski/mini.surround',
       version = false,
@@ -173,7 +147,6 @@ require("lazy").setup({
         })
       end
     },
-
     {
       "folke/trouble.nvim",
       dependencies = { 'echasnovski/mini.icons' },
@@ -184,7 +157,6 @@ require("lazy").setup({
       "folke/todo-comments.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
       opts = {
-
       }
     },
     {
@@ -201,14 +173,11 @@ require("lazy").setup({
         require("persistence").setup()
       end,
     },
-
     -- UI
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
     },
-    { "olimorris/onedarkpro.nvim", lazy=true },
-    { "thesimonho/kanagawa-paper.nvim", lazy = true };
     { "rebelot/kanagawa.nvim", lazy=true },
     {
       "cdmill/neomodern.nvim",

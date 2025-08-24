@@ -14,3 +14,4 @@ vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = 'Telescope Git C
 vim.keymap.set('n', '<leader>gb', builtin.git_bcommits, { desc = 'Telescope Git Buffer Commits' })
 vim.keymap.set('n', '<leader>gm', builtin.git_branches, { desc = 'Telescope Git Branches' })
 vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Telescope Git Status' })
+vim.keymap.set('n', '<leader>ft', builtin.treesitter, { desc = 'Telescope Treesitter' })
