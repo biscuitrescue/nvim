@@ -109,18 +109,6 @@ require("lazy").setup({
     },
 
     {
-      "numToStr/FTerm.nvim",
-      config = function()
-        require("FTerm").setup({
-          border = 'double',
-          dimensions  = {
-            height = 0.9,
-            width = 0.9,
-          },
-        })
-      end
-    },
-    {
       'MeanderingProgrammer/render-markdown.nvim',
       dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
       ---@module 'render-markdown'

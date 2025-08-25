@@ -21,22 +21,13 @@ opt.laststatus = 3
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
--- o.statusline = o.statusline .. "%#warningmsg#" .. "%*"
-
-o.statusline = table.concat({
-  " %f",      -- File path relative to CWD
-  " %m",      -- Modified flag
-})
-
+o.statusline = o.statusline .. "%#warningmsg#" .. "%*" .. "%="  .. "%m "
 opt.linebreak = true
 opt.termguicolors = true
--- g.term = "screen-256color"
-
 opt.swapfile = false
 opt.backup = false
 opt.undodir = vim.fn.stdpath('data') .. "/undodir"
 opt.undofile = true
-
 opt.hlsearch = false
 opt.incsearch = true
 opt.signcolumn = "yes"
@@ -49,11 +40,6 @@ opt.conceallevel = 2
 
 vim.api.nvim_set_hl(0, "Comment", { italic = true })
 
--- vim.cmd("hi Comment guifg=darkgrey")
--- vim.cmd("IndentLinesEnable")
--- vim.cmd("hi NvimTreeNormal guibg=NONE")
--- vim.api.nvim_set_hl(0, 'Comment', { italic=true })
-
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*" },
   callback = function()
@@ -62,22 +48,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     end
   end,
 })
-
-if g.neovide then
-  -- o.guifont = "operator mono:h11"
-  o.guifont = "jetbrainsmono nerd font:h11"
-  opt.linespace = 0
-  g.neovide_scale_factor = 1.0
-  g.neovide_padding_top = 1
-  g.neovide_padding_bottom = 1
-  g.neovide_padding_right = 1
-  g.neovide_padding_left = 1
-
-  g.neovide_cursor_vfx_particle_density = 10.0
-  g.neovide_cursor_vfx_mode = "railgun"
-  g.neovide_opacity = 0.9
-  g.neovide_normal_opacity = 0.9
-end
 
 vim.filetype.add({
   extension = { rasi = "rasi" },
@@ -131,4 +101,3 @@ require("colorizer").setup()
 
 vim.cmd.colorscheme("roseprime")
 vim.cmd("hi statusline guibg=None")
--- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
