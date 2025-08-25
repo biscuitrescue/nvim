@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- in lspconfig.lua
-local servers = { "rust_analyzer", "clangd", "pyright", "zls", "nil_ls" }
+local servers = { "rust_analyzer", "clangd", "pylsp", "zls", "nil_ls" }
 
 for _, server in ipairs(servers) do
   vim.lsp.config[server] = {
