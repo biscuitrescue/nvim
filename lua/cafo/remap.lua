@@ -7,32 +7,6 @@ set({"n", "v", "x"}, "<leader>tf", function() vim.diagnostic.open_float() end, o
 set({"n", "v", "x"}, "<A-w>", "^")
 set({"n", "v", "x"}, "<A-e>", "$")
  
--- Move to previous/next
-set({"n", "v", "x", "i"}, '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-.>', '<Cmd>BufferNext<CR>', opts)
-
--- Re-order to previous/next
-set({"n", "v", "x"}, '<leader>b<', '<Cmd>BufferMovePrevious<CR>', opts)
-set({"n", "v", "x"}, '<leader>b>', '<Cmd>BufferMoveNext<CR>', opts)
-
--- Goto buffer in position...
-set({"n", "v", "x", "i"}, '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-0>', '<Cmd>BufferLast<CR>', opts)
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
-map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
-set({"n", "v", "x", "i"}, '<A-p>', '<Cmd>BufferPin<CR>', opts)
 
 -- Nav
 set("v", "J", ":m '>+1<CR>gv=gv")
