@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim', branch = 'master',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {
@@ -41,15 +41,14 @@ require("lazy").setup({
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
-    -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    lazy = false,
+    branch = 'main',
+    build = ':TSUpdate'
   },
   {
     'mbbill/undotree',
