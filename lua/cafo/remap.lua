@@ -3,11 +3,13 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 set({"n", "v", "x"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
+
 -- Navigation to 0 and $
 set({"n", "v", "x"}, "<A-w>", "^")
 set({"n", "v", "x"}, "<A-e>", "$")
  
-
+-- Zenmode
+set({"n", "v", "x"}, "<leader>z", "<cmd>ZenMode<CR>")
 -- Nav
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")

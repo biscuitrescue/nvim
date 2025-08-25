@@ -196,6 +196,7 @@ require("lazy").setup({
       end,
     },
     -- UI
+    { "folke/zen-mode.nvim", opts = {} },
     { 'echasnovski/mini.cursorword', version = false },
     {
       "goolord/alpha-nvim",
