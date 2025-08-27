@@ -81,7 +81,7 @@ require("lazy").setup({
   --   },
   --   version = '^1.0.0', -- optional: only update when a new 1.x version is released
   -- },
-  {'norcalli/nvim-colorizer.lua'},
+  'norcalli/nvim-colorizer.lua',
   {
     'notjedi/nvim-rooter.lua',
     config = function()
