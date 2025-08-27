@@ -99,5 +99,5 @@ require("cafo.remap")
 require("cafo.lazy")
 require("colorizer").setup()
 
-vim.cmd.colorscheme("hojicha")
+vim.cmd.colorscheme("roseprime")
 vim.cmd("hi statusline guibg=None")
