@@ -2,16 +2,22 @@ local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- LSP
-set({"n", "v", "x"}, "<leader>tf", function() vim.diagnostic.open_float() end, opts)
-set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
+set({ "n", "v", "x" }, "<leader>tf", function()
+	vim.diagnostic.open_float()
+end, opts)
+set("n", "gd", function()
+	vim.lsp.buf.definition()
+end, opts)
+set("n", "<leader>lf", function()
+	vim.lsp.buf.format()
+end, opts)
 
 -- Navigation to 0 and $
-set({"n", "v", "x"}, "<A-w>", "^")
-set({"n", "v", "x"}, "<A-e>", "$")
- 
+set({ "n", "v", "x" }, "<A-w>", "^")
+set({ "n", "v", "x" }, "<A-e>", "$")
+
 -- Zenmode
-set({"n", "v", "x"}, "<leader>z", "<cmd>ZenMode<CR>")
+set({ "n", "v", "x" }, "<leader>z", "<cmd>ZenMode<CR>")
 -- Nav
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
