@@ -65,7 +65,7 @@ require("lazy").setup({
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {},
-		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		lazy = false,
 	},
 	{
@@ -88,24 +88,9 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	},
-	-- {
-	--   'romgrk/barbar.nvim',
-	--   dependencies = {
-	--     'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-	--     'nvim-tree/nvim-web-devicons'
-	--   },
-	--   init = function() vim.g.barbar_auto_setup = false end,
-	--   opts = {
-	--   },
-	--   version = '^1.0.0', -- optional: only update when a new 1.x version is released
-	-- },
+
 	"norcalli/nvim-colorizer.lua",
+	{ "nvim-mini/mini.pairs", version = false },
 	{
 		"notjedi/nvim-rooter.lua",
 		config = function()
@@ -132,7 +117,7 @@ require("lazy").setup({
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},
@@ -148,7 +133,7 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"echasnovski/mini.surround",
+		"nvim-mini/mini.surround",
 		version = false,
 		config = function()
 			require("mini.surround").setup({
@@ -218,11 +203,13 @@ require("lazy").setup({
 		end,
 	},
 	-- UI
+	{ "nvim-mini/mini.animate", version = false },
+	{ "nvim-mini/mini.indentscope", version = false },
 	{ "folke/zen-mode.nvim", opts = {} },
-	{ "echasnovski/mini.cursorword", version = false },
+	{ "nvim-mini/mini.cursorword", version = false },
 	{
 		"goolord/alpha-nvim",
-		dependencies = { "echasnovski/mini.icons" },
+		dependencies = { "nvim-mini/mini.icons" },
 		config = function()
 			local startify = require("alpha.themes.startify")
 			startify.file_icons.provider = "mini"

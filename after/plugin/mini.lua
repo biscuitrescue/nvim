@@ -1,1 +1,4 @@
 require("mini.cursorword").setup()
+require("mini.pairs").setup()
+require("mini.animate").setup()
+require("mini.indentscope").setup()
