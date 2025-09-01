@@ -38,6 +38,21 @@ opt.cursorcolumn = false
 opt.background = "dark"
 opt.conceallevel = 2
 
+-- Neovide
+if vim.g.neovide then
+	vim.o.guifont = "Fira Code:h12" -- text below applies for VimScript
+	opt.linespace = 0
+	g.neovide_scale_factor = 1.0
+	g.neovide_padding_top = 1
+	g.neovide_padding_bottom = 1
+	g.neovide_padding_right = 1
+	g.neovide_padding_left = 1
+	g.neovide_cursor_vfx_particle_density = 10.0
+	g.neovide_cursor_vfx_mode = "railgun"
+	g.neovide_opacity = 1
+	g.neovide_normal_opacity = 1
+end
+
 vim.api.nvim_set_hl(0, "Comment", { italic = true })
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
