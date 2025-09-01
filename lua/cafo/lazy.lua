@@ -16,8 +16,8 @@ require("lazy").setup({
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-mini/mini.icons" },
-        opts = {}
-    };
+        opts = {},
+    },
     {
         "christoomey/vim-tmux-navigator",
         lazy = false,
@@ -86,7 +86,8 @@ require("lazy").setup({
         end,
     },
 
-    "norcalli/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
+
     { "nvim-mini/mini.pairs", version = false },
     {
         "notjedi/nvim-rooter.lua",
@@ -107,7 +108,7 @@ require("lazy").setup({
     { "neovim/nvim-lspconfig" },
     {
         "saghen/blink.cmp",
-        lazy = false,    -- Force it to load immediately
+        lazy = false, -- Force it to load immediately
         priority = 1000, -- Make sure it's before LSP
         build = "cargo build --release",
     },
@@ -214,7 +215,7 @@ require("lazy").setup({
         ---@type ibl.config
         opts = {},
     },
-    'Mofiqul/dracula.nvim',
+    "Mofiqul/dracula.nvim",
     {
         "cdmill/neomodern.nvim",
         lazy = false,

@@ -4,6 +4,7 @@ local g = vim.g
 
 g.mapleader = " "
 
+opt.shortmess = vim.opt.shortmess + "atI"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.encoding = "UTF-8"
@@ -120,6 +121,17 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "=", function()
 			vim.lsp.buf.format({ async = true })
 		end, { buffer = true })
+	end,
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if #vim.fn.argv() == 0 then
+			vim.cmd("cd " .. vim.fn.getcwd())
+			vim.schedule(function()
+				require("oil").open()
+			end)
+		end
 	end,
 })
 
