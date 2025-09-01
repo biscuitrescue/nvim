@@ -21,7 +21,7 @@ opt.laststatus = 3
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
-o.statusline = o.statusline .. "%#warningmsg#" .. "%*" .. "%=" .. "%m "
+o.statusline = o.statusline .. "%#warningmsg#" .. "%*"
 opt.linebreak = true
 opt.termguicolors = true
 opt.swapfile = false

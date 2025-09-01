@@ -202,7 +202,10 @@ require("lazy").setup({
 			require("persistence").setup()
 		end,
 	},
+
 	-- UI
+
+	{ "nvim-mini/mini.statusline", version = false },
 	{ "nvim-mini/mini.animate", version = false },
 	{ "nvim-mini/mini.indentscope", version = false },
 	{ "folke/zen-mode.nvim", opts = {} },
