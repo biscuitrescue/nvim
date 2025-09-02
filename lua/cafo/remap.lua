@@ -3,13 +3,13 @@ local opts = { noremap = true, silent = true }
 
 -- LSP
 set({ "n", "v", "x" }, "<leader>tf", function()
-	vim.diagnostic.open_float()
+    vim.diagnostic.open_float()
 end, opts)
 set("n", "gd", function()
-	vim.lsp.buf.definition()
+    vim.lsp.buf.definition()
 end, opts)
 set("n", "<leader>lf", function()
-	vim.lsp.buf.format()
+    vim.lsp.buf.format()
 end, opts)
 
 -- Navigation to 0 and $

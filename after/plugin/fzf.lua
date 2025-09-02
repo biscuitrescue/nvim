@@ -8,7 +8,8 @@ fzf.setup({
   },
   preview = {
       scrollbar = "border"
-  }
+  },
+  fzf_colors = true,
   -- your other settings here 
 })
 
