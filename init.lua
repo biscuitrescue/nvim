@@ -119,7 +119,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo.autoindent = true
 		vim.bo.smartindent = false -- Let Black handle indentation rules
 		vim.keymap.set("n", "=", function()
-			vim.lsp.buf.format({ async = true })
+			require("conform").format({ async = true })
 		end, { buffer = true })
 	end,
 })
