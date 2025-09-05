@@ -8,7 +8,6 @@ opt.shortmess = vim.opt.shortmess + "atI"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.encoding = "UTF-8"
--- o.winborder = "rounded"
 opt.ignorecase = true
 opt.smartcase = true
 opt.nu = true
@@ -54,8 +53,6 @@ if vim.g.neovide then
 	g.neovide_normal_opacity = 1
 end
 
-vim.api.nvim_set_hl(0, "Comment", { italic = true })
-
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	pattern = { "*" },
 	callback = function()
@@ -75,8 +72,6 @@ vim.filetype.add({
 	},
 })
 
-o.updatetime = 300
-
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
 		local opts = {
@@ -94,35 +89,24 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "lua",
-	callback = function()
-		vim.bo.expandtab = true -- Use spaces not tabs
-		vim.bo.shiftwidth = 4 -- Indent width
-		vim.bo.tabstop = 4 -- Tabs appear as 4 spaces
-		vim.bo.softtabstop = 4
-		vim.bo.autoindent = true
-		vim.bo.smartindent = false -- Let Black handle indentation rules
-		vim.keymap.set("n", "=", function()
-			vim.lsp.buf.format({ async = true })
-		end, { buffer = true })
-	end,
-})
+local servers = { "lua", "python" }
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "python",
-	callback = function()
-		vim.bo.expandtab = true -- Use spaces not tabs
-		vim.bo.shiftwidth = 4 -- Indent width
-		vim.bo.tabstop = 4 -- Tabs appear as 4 spaces
-		vim.bo.softtabstop = 4
-		vim.bo.autoindent = true
-		vim.bo.smartindent = false -- Let Black handle indentation rules
-		vim.keymap.set("n", "=", function()
-			require("conform").format({ async = true })
-		end, { buffer = true })
-	end,
-})
+for _, server in ipairs(servers) do
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = server,
+		callback = function()
+			vim.bo.expandtab = true -- Use spaces not tabs
+			vim.bo.shiftwidth = 4 -- Indent width
+			vim.bo.tabstop = 4 -- Tabs appear as 4 spaces
+			vim.bo.softtabstop = 4
+			vim.bo.autoindent = true
+			vim.bo.smartindent = false -- Let Black handle indentation rules
+			vim.keymap.set("n", "=", function()
+				vim.lsp.buf.format({ async = true })
+			end, { buffer = true })
+		end,
+	})
+end
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
