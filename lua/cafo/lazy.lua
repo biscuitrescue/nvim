@@ -214,7 +214,6 @@ require("lazy").setup({
 		---@type ibl.config
 		opts = {},
 	},
-	"Mofiqul/dracula.nvim",
 	{
 		"cdmill/neomodern.nvim",
 		lazy = false,
