@@ -33,4 +33,3 @@ vim.keymap.set("n", "<leader>gb", fzf.git_bcommits, { desc = "FzfLua Git Buffer 
 vim.keymap.set("n", "<leader>gm", fzf.git_branches, { desc = "FzfLua Git Branches" })
 vim.keymap.set("n", "<leader>gs", fzf.git_status, { desc = "FzfLua Git Status" })
 vim.keymap.set("n", "<leader>gd", fzf.git_diff, { desc = "FzfLua Git Diff" })
-vim.keymap.set("n", "<leader>gl", fzf.git_log, { desc = "FzfLua Git Log" })
