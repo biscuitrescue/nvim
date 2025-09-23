@@ -122,8 +122,9 @@ require("lazy").setup({
 		opts = {},
 		config = function()
 			require("render-markdown").setup({
+				render_modes = { "n", "c", "t" },
 				html = { enabled = false },
-				latex = { enabled = true },
+				latex = { enabled = false },
 				completions = {
 					blink = { enabled = true },
 					lsp = { enabled = true },
