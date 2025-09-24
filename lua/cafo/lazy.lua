@@ -57,6 +57,9 @@ require("lazy").setup({
 			},
 		},
 	},
+
+	"numToStr/FTerm.nvim",
+
 	{
 		"stevearc/oil.nvim",
 		---@module 'oil'
