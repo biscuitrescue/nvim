@@ -3,6 +3,7 @@ local o = vim.o
 local g = vim.g
 
 g.mapleader = " "
+g.maplocalleader = " "
 
 opt.shortmess = vim.opt.shortmess + "atI"
 g.loaded_netrw = 1
