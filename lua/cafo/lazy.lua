@@ -89,8 +89,6 @@ require("lazy").setup({
 		end,
 	},
 
-	"catgoose/nvim-colorizer.lua",
-
 	{ "nvim-mini/mini.comment", version = false },
 	{ "nvim-mini/mini.pairs", version = false },
 	{

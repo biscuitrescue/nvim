@@ -124,7 +124,6 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 require("cafo.remap")
 require("cafo.lazy")
-require("colorizer").setup()
 
 -- vim.cmd("hi statusline guibg=None")
 -- vim.cmd.colorscheme("roseprime")
