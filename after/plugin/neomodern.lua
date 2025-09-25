@@ -7,7 +7,7 @@ require("neomodern").setup({
 	-- Use an alternate, darker bg
 	alt_bg = false,
 	colored_docstrings = true,
-	dark_gutter = false,
+	dark_gutter = true,
 	favor_treesitter_hl = false,
 	plain_float = false,
 	term_colors = true,
@@ -38,12 +38,11 @@ require("neomodern").setup({
 		},
 		cmp = { -- works for nvim.cmp and blink.nvim
 			plain = false,
-			reverse = false,
+			reverse = true,
 		},
 	},
 
 	colors = {},
-	-- Override highlight groups
 	highlights = {},
 })
 require("neomodern").load()
