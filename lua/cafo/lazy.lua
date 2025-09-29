@@ -216,6 +216,7 @@ require("lazy").setup({
 		---@type ibl.config
 		opts = {},
 	},
+	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 	{
 		"cdmill/neomodern.nvim",
 		lazy = false,
