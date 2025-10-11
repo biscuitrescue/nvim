@@ -205,10 +205,8 @@ require("lazy").setup({
 	-- UI
 
 	{ "nvim-mini/mini.statusline", version = false },
-	{ "nvim-mini/mini.animate", version = false },
 	{ "nvim-mini/mini.indentscope", version = false },
 	{ "folke/zen-mode.nvim", opts = {} },
-	{ "nvim-mini/mini.cursorword", version = false },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -216,7 +214,12 @@ require("lazy").setup({
 		---@type ibl.config
 		opts = {},
 	},
-	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+	"maxmx03/dracula.nvim",
+	{
+		"olimorris/onedarkpro.nvim",
+		priority = 1000, -- Ensure it loads first
+	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"cdmill/neomodern.nvim",
 		lazy = false,
