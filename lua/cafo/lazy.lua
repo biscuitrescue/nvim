@@ -219,7 +219,12 @@ require("lazy").setup({
 		"olimorris/onedarkpro.nvim",
 		priority = 1000, -- Ensure it loads first
 	},
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		"thesimonho/kanagawa-paper.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	{
 		"cdmill/neomodern.nvim",
 		lazy = false,

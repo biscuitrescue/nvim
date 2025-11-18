@@ -1,6 +1,6 @@
 require("neomodern").setup({
 	-- Can be one of: 'iceclimber' | 'gyokuro' | 'hojicha' | 'roseprime'
-	theme = "hojicha",
+	theme = "roseprime",
 
 	variant = "dark",
 
