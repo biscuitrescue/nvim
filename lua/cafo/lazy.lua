@@ -204,7 +204,6 @@ require("lazy").setup({
 
 	-- UI
 
-	{ "nvim-mini/mini.statusline", version = false },
 	{ "nvim-mini/mini.indentscope", version = false },
 	{ "folke/zen-mode.nvim", opts = {} },
 	{
@@ -212,17 +211,6 @@ require("lazy").setup({
 		main = "ibl",
 		---@module "ibl"
 		---@type ibl.config
-		opts = {},
-	},
-	"maxmx03/dracula.nvim",
-	{
-		"olimorris/onedarkpro.nvim",
-		priority = 1000, -- Ensure it loads first
-	},
-	{
-		"thesimonho/kanagawa-paper.nvim",
-		lazy = false,
-		priority = 1000,
 		opts = {},
 	},
 	{

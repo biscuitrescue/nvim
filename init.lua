@@ -18,11 +18,11 @@ opt.clipboard = "unnamedplus"
 opt.shiftwidth = 2
 opt.tabstop = 4
 opt.scrolloff = 4
-opt.laststatus = 3
+opt.laststatus = 2
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
-o.statusline = o.statusline .. "%#warningmsg#" .. "%*"
+o.statusline = "%-5.(%P%) %l,%c%V%=%h%m%r %f"
 opt.linebreak = true
 opt.termguicolors = true
 opt.swapfile = false
