@@ -185,11 +185,6 @@ require("lazy").setup({
 		},
 	},
 	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
-	},
-	{
 		"stevearc/conform.nvim",
 		opts = {},
 	},
@@ -203,18 +198,14 @@ require("lazy").setup({
 	},
 
 	-- UI
-
-	-- { "nvim-mini/mini.indentscope", version = false },
-	-- {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	main = "ibl",
-	-- 	---@module "ibl"
-	-- 	---@type ibl.config
-	-- 	opts = {},
-	-- },
 	{
-		"cdmill/neomodern.nvim",
-		lazy = false,
-		priority = 1000,
+		"folke/zen-mode.nvim",
+		opts = {},
+	},
+	{
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
 	},
 })

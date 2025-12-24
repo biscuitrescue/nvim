@@ -5,6 +5,7 @@ local g = vim.g
 g.mapleader = " "
 g.maplocalleader = " "
 
+o.winborder = "rounded"
 opt.shortmess = vim.opt.shortmess + "atI"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
@@ -34,7 +35,7 @@ opt.incsearch = true
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 opt.updatetime = 50
-opt.cursorline = true
+opt.cursorline = false
 opt.cursorcolumn = false
 opt.background = "dark"
 opt.conceallevel = 2
@@ -121,6 +122,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 opt.completeopt = { "menu", "menuone", "noselect" }
+
+vim.cmd.colorscheme("habamax")
+vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
 
 require("cafo.remap")
 require("cafo.lazy")
