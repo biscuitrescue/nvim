@@ -204,15 +204,14 @@ require("lazy").setup({
 
 	-- UI
 
-	{ "nvim-mini/mini.indentscope", version = false },
-	{ "folke/zen-mode.nvim", opts = {} },
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+	-- { "nvim-mini/mini.indentscope", version = false },
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	---@module "ibl"
+	-- 	---@type ibl.config
+	-- 	opts = {},
+	-- },
 	{
 		"cdmill/neomodern.nvim",
 		lazy = false,
