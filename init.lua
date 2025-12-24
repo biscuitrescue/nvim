@@ -1,12 +1,27 @@
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
+local mode_map = {
+	n = "NORMAL",
+	i = "INSERT",
+	v = "VISUAL",
+	V = "V-LINE",
+	[""] = "V-BLOCK",
+	c = "COMMAND",
+	R = "REPLACE",
+	t = "TERMINAL",
+}
+
+_G.statusline_mode = function()
+	local m = vim.fn.mode()
+	return (mode_map[m] or m) .. " "
+end
 
 g.mapleader = " "
 g.maplocalleader = " "
 
 o.winborder = "rounded"
-opt.shortmess = vim.opt.shortmess + "atI"
+opt.shortmess = opt.shortmess + "at"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.encoding = "UTF-8"
@@ -23,7 +38,8 @@ opt.laststatus = 3
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
-o.statusline = "%-5.(%P%) %l,%c%V%=%h%m%r %f"
+opt.showmode = false
+o.statusline = " |  %{%v:lua.statusline_mode()%}" .. " | %P " .. "| %l:%c%V " .. "%=%h %m%r |" .. " %t | "
 opt.linebreak = true
 opt.termguicolors = true
 opt.swapfile = false
@@ -39,21 +55,6 @@ opt.cursorline = false
 opt.cursorcolumn = false
 opt.background = "dark"
 opt.conceallevel = 2
-
--- Neovide
-if vim.g.neovide then
-	vim.o.guifont = "Fira Code:h12" -- text below applies for VimScript
-	opt.linespace = 0
-	g.neovide_scale_factor = 1.0
-	g.neovide_padding_top = 1
-	g.neovide_padding_bottom = 1
-	g.neovide_padding_right = 1
-	g.neovide_padding_left = 1
-	g.neovide_cursor_vfx_particle_density = 10.0
-	g.neovide_cursor_vfx_mode = "railgun"
-	g.neovide_opacity = 1
-	g.neovide_normal_opacity = 1
-end
 
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	pattern = { "*" },
@@ -74,41 +75,33 @@ vim.filetype.add({
 	},
 })
 
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		local opts = {
-			focusable = false,
-			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-			border = "rounded",
-			source = "always",
-			prefix = "",
-			scope = "line",
-		}
-
-		if #vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 }) > 0 then
-			vim.diagnostic.open_float(nil, opts)
-		end
-	end,
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "", -- remove weird leading symbols
+		spacing = 1,
+	},
+	float = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
 })
 
-local servers = { "lua", "python" }
-
-for _, server in ipairs(servers) do
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = server,
-		callback = function()
-			vim.bo.expandtab = true -- Use spaces not tabs
-			vim.bo.shiftwidth = 4 -- Indent width
-			vim.bo.tabstop = 4 -- Tabs appear as 4 spaces
-			vim.bo.softtabstop = 4
-			vim.bo.autoindent = true
-			vim.bo.smartindent = false -- Let Black handle indentation rules
-			vim.keymap.set("n", "=", function()
-				vim.lsp.buf.format({ async = true })
-			end, { buffer = true })
-		end,
-	})
-end
+-- vim.api.nvim_create_autocmd("CursorHold", {
+-- 	callback = function()
+-- 		local opts = {
+-- 			focusable = false,
+-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+-- 			border = "rounded",
+-- 			source = "always",
+-- 			prefix = "",
+-- 			scope = "line",
+-- 		}
+--
+-- 		if #vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 }) > 0 then
+-- 			vim.diagnostic.open_float(nil, opts)
+-- 		end
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
@@ -124,6 +117,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 opt.completeopt = { "menu", "menuone", "noselect" }
 
 vim.cmd.colorscheme("habamax")
+
 vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
@@ -131,3 +125,4 @@ vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
 
 require("cafo.remap")
 require("cafo.lazy")
+require("cafo.langs")
