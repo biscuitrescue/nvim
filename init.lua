@@ -124,5 +124,3 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 require("cafo.remap")
 require("cafo.lazy")
-
--- vim.cmd.colorscheme("kanagawa-paper-ink")
