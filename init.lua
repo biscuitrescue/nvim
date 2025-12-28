@@ -130,9 +130,6 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NonText", { bg = "none", fg = "#999999" })
 -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
-vim.api.nvim_set_hl(0, "DiffAddNv", { fg = "#1e1e2e", bg = "#a6e3a1", bold = true })
-vim.api.nvim_set_hl(0, "DiffModNv", { fg = "#1e1e2e", bg = "#f9e2af", bold = true })
-vim.api.nvim_set_hl(0, "DiffDelNv", { fg = "#1e1e2e", bg = "#f38ba8", bold = true })
 
 require("cafo.remap")
 require("cafo.lazy")
