@@ -208,4 +208,22 @@ require("lazy").setup({
 			require("fidget").setup()
 		end,
 	},
+	{
+		"ribru17/bamboo.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("bamboo").setup({
+				-- optional configuration here
+			})
+			require("bamboo").load()
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
 })

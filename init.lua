@@ -1,6 +1,7 @@
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
+
 local mode_map = {
 	n = "NORMAL",
 	i = "INSERT",
@@ -124,13 +125,15 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 opt.completeopt = { "menu", "menuone", "noselect" }
 
-vim.cmd.colorscheme("habamax")
-
-vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
+-- vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NonText", { bg = "none", fg = "#999999" })
+-- vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
 
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
+
+-- vim.cmd.colorscheme("kanagawa-dragon")
+-- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
