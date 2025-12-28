@@ -105,16 +105,16 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if #vim.fn.argv() == 0 then
-			vim.cmd("cd " .. vim.fn.getcwd())
-			vim.schedule(function()
-				require("oil").open()
-			end)
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	callback = function()
+-- 		if #vim.fn.argv() == 0 then
+-- 			vim.cmd("cd " .. vim.fn.getcwd())
+-- 			vim.schedule(function()
+-- 				require("oil").open()
+-- 			end)
+-- 		end
+-- 	end,
+-- })
 
 opt.completeopt = { "menu", "menuone", "noselect" }
 
