@@ -216,8 +216,12 @@ require("lazy").setup({
 			require("bamboo").setup()
 		end,
 	},
-	"nyoom-engineering/oxocarbon.nvim",
-
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-mini/mini.icons" },
