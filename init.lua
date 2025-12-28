@@ -44,7 +44,6 @@ opt.clipboard = "unnamedplus"
 opt.shiftwidth = 2
 opt.tabstop = 4
 opt.scrolloff = 4
-opt.laststatus = 3
 opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
@@ -68,6 +67,7 @@ opt.cursorline = false
 opt.cursorcolumn = false
 opt.background = "dark"
 opt.conceallevel = 2
+opt.laststatus = 3
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -89,13 +89,6 @@ vim.filetype.add({
 		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
-
--- indent guides
--- vim.opt.list = true
--- vim.opt.listchars = {
--- 	tab = "│ ",
--- 	leadmultispace = "│   ",
--- }
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function()
@@ -125,15 +118,24 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 opt.completeopt = { "menu", "menuone", "noselect" }
 
+-- indent guides
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+-- 	tab = "│ ",
+-- 	leadmultispace = "│   ",
+-- }
+
 -- vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NonText", { bg = "none", fg = "#999999" })
 -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
+vim.api.nvim_set_hl(0, "DiffAddNv", { fg = "#1e1e2e", bg = "#a6e3a1", bold = true })
+vim.api.nvim_set_hl(0, "DiffModNv", { fg = "#1e1e2e", bg = "#f9e2af", bold = true })
+vim.api.nvim_set_hl(0, "DiffDelNv", { fg = "#1e1e2e", bg = "#f38ba8", bold = true })
 
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
 
--- vim.cmd.colorscheme("kanagawa-dragon")
--- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+vim.cmd.colorscheme("bamboo")

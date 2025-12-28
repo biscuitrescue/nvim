@@ -1,54 +1,87 @@
+local sep = {
+	round = { left = "", right = "" },
+	slant = { left = "", right = "" },
+}
+
+local mode_map = {
+	n = "NORMAL",
+	i = "INSERT",
+	v = "VISUAL",
+	V = "V-LINE",
+	["\22"] = "V-BLOCK",
+	c = "COMMAND",
+	R = "REPLACE",
+	t = "TERMINAL",
+}
+
+local function nvchad_mode()
+	return " " .. (mode_map[vim.fn.mode()] or "UNKNOWN") .. ""
+end
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = "auto",
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
+		globalstatus = true,
+
+		-- IMPORTANT: disable defaults
+		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+	},
+
+	sections = {
+		-- MODE (slanted on right)
+		lualine_a = {
+			{
+				nvchad_mode,
+				separator = { right = sep.slant.right },
+				padding = { left = 1, right = 1 },
+			},
 		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		always_show_tabline = true,
-		globalstatus = false,
-		refresh = {
-			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
-			refresh_time = 16, -- ~60fps
-			events = {
-				"WinEnter",
-				"BufEnter",
-				"BufWritePost",
-				"SessionLoadPost",
-				"FileChangedShellPost",
-				"VimResized",
-				"Filetype",
-				"CursorMoved",
-				"CursorMovedI",
-				"ModeChanged",
+
+		-- LEFT INFO (rounded)
+		lualine_b = {
+			{
+				"branch",
+				icon = "",
+				separator = { left = sep.round.left, right = sep.round.right },
+			},
+			{
+				"diff",
+				symbols = { added = " ", modified = " ", removed = " " },
+				separator = { right = sep.round.right },
+			},
+		},
+
+		lualine_c = {
+			{
+				"filename",
+				path = 1,
+				symbols = { modified = "", readonly = " " },
+			},
+		},
+
+		-- RIGHT SIDE (flat)
+		lualine_x = {
+			{
+				"diagnostics",
+				symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
+				separator = { left = sep.round.left },
+			},
+			"filetype",
+		},
+
+		lualine_y = {
+			{
+				"progress",
+				separator = { left = sep.round.left },
+			},
+		},
+		lualine_z = {
+			{
+				"location",
+				separator = { left = sep.round.left },
 			},
 		},
 	},
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filename" },
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	winbar = {},
-	inactive_winbar = {},
-	extensions = {},
 })

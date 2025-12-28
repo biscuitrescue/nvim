@@ -213,15 +213,14 @@ require("lazy").setup({
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("bamboo").setup({
-				-- optional configuration here
-			})
-			require("bamboo").load()
+			require("bamboo").setup()
 		end,
 	},
+	"nyoom-engineering/oxocarbon.nvim",
+
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "nvim-mini/mini.icons" },
 		config = function()
 			require("lualine").setup()
 		end,
