@@ -2,31 +2,6 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
-local mode_map = {
-	n = "NORMAL",
-	i = "INSERT",
-	v = "VISUAL",
-	V = "V-LINE",
-	[""] = "V-BLOCK",
-	c = "COMMAND",
-	R = "REPLACE",
-	t = "TERMINAL",
-}
-
-_G.statusline_mode = function()
-	local m = vim.fn.mode()
-	return (mode_map[m] or m) .. " "
-end
-
-_G.statusline_diagnostics = function()
-	local e = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-	local w = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-	if e == 0 and w == 0 then
-		return ""
-	end
-	return string.format(" E:%d W:%d", e, w)
-end
-
 g.mapleader = " "
 g.maplocalleader = " "
 
@@ -48,10 +23,10 @@ opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
 opt.showmode = false
-o.statusline = " | %{%v:lua.statusline_mode()%}"
-	.. "| %P | %l:%c%V "
-	.. "%=%h %m%r"
-	.. "%{%v:lua.statusline_diagnostics()%} | %t | "
+-- o.statusline = " | %{%v:lua.statusline_mode()%}"
+-- 	.. "| %P | %l:%c%V "
+-- 	.. "%=%h %m%r"
+-- 	.. "%{%v:lua.statusline_diagnostics()%} | %t | "
 opt.linebreak = true
 opt.termguicolors = true
 opt.swapfile = false
@@ -105,25 +80,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	end,
 })
 
--- vim.api.nvim_create_autocmd("VimEnter", {
--- 	callback = function()
--- 		if #vim.fn.argv() == 0 then
--- 			vim.cmd("cd " .. vim.fn.getcwd())
--- 			vim.schedule(function()
--- 				require("oil").open()
--- 			end)
--- 		end
--- 	end,
--- })
-
 opt.completeopt = { "menu", "menuone", "noselect" }
-
--- indent guides
--- vim.opt.list = true
--- vim.opt.listchars = {
--- 	tab = "│ ",
--- 	leadmultispace = "│   ",
--- }
 
 -- vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
