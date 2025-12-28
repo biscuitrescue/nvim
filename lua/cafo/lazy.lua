@@ -12,53 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
-	{
-		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-mini/mini.icons" },
-		opts = {},
-	},
 	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
-	-- SESSIONS
-	{
-		"gennaro-tedesco/nvim-possession",
-		config = true,
-		keys = {
-			{
-				"<leader>sl",
-				function()
-					require("nvim-possession").list()
-				end,
-				desc = "📌list sessions",
-			},
-			{
-				"<leader>sn",
-				function()
-					require("nvim-possession").new()
-				end,
-				desc = "📌create new session",
-			},
-			{
-				"<leader>su",
-				function()
-					require("nvim-possession").update()
-				end,
-				desc = "📌update current session",
-			},
-			{
-				"<leader>sd",
-				function()
-					require("nvim-possession").delete()
-				end,
-				desc = "📌delete selected session",
-			},
-		},
-	},
 
 	"numToStr/FTerm.nvim",
+	"numToStr/Comment.nvim",
 
 	{
 		"stevearc/oil.nvim",
@@ -74,11 +34,6 @@ require("lazy").setup({
 		branch = "main",
 		build = ":TSUpdate",
 	},
-	{
-		"mbbill/undotree",
-		lazy = true,
-		cmd = "UndotreeToggle",
-	},
 	-- git
 	"tpope/vim-fugitive",
 	"nvim-lua/plenary.nvim",
@@ -88,9 +43,58 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
+	{
+		"altermo/ultimate-autopair.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+		branch = "v0.6",
+		opts = {},
+	},
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-mini/mini.icons" },
+		---@module "fzf-lua"
+		---@type fzf-lua.Config|{}
+		---@diagnostics disable: missing-fields
+		opts = {},
+		---@diagnostics enable: missing-fields
+	},
+	{
+		"bassamsdata/namu.nvim",
+		opts = {
+			global = {},
+			namu_symbols = { -- Specific Module options
+				options = {},
+			},
+		},
+		vim.keymap.set("n", "<leader>ss", ":Namu symbols<cr>", {
+			desc = "Jump to LSP symbol",
+			silent = true,
+		}),
+		vim.keymap.set("n", "<leader>xx", ":Namu diagnostics workspace<cr>", {
+			desc = "LSP Symbols - Workspace",
+			silent = true,
+		}),
+		vim.keymap.set("n", "<leader>xX", ":Namu diagnostics buffers<cr>", {
+			desc = "LSP Symbols - Workspace",
+			silent = true,
+		}),
+		vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", {
+			desc = "LSP Symbols - Workspace",
+			silent = true,
+		}),
+	},
+	{
+		"otavioschwanck/arrow.nvim",
+		dependencies = {
+			{ "nvim-mini/mini.icons" },
+		},
+		opts = {
+			show_icons = true,
+			leader_key = ",", -- Recommended to be a single key
+			buffer_leader_key = "m", -- Per Buffer Mappings
+		},
+	},
 
-	{ "nvim-mini/mini.comment", version = false },
-	{ "nvim-mini/mini.pairs", version = false },
 	{
 		"notjedi/nvim-rooter.lua",
 		config = function()
@@ -106,32 +110,18 @@ require("lazy").setup({
 		end,
 	},
 
-	-- LSP
 	{ "neovim/nvim-lspconfig" },
 	{
 		"saghen/blink.cmp",
-		lazy = false, -- Force it to load immediately
-		priority = 1000, -- Make sure it's before LSP
+		lazy = false,
+		priority = 1000,
 		build = "cargo build --release",
 	},
 
 	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
+		"tadmccorkle/markdown.nvim",
+		ft = "markdown",
 		opts = {},
-		config = function()
-			require("render-markdown").setup({
-				render_modes = { "n", "c", "t" },
-				html = { enabled = false },
-				latex = { enabled = false },
-				completions = {
-					blink = { enabled = true },
-					lsp = { enabled = true },
-				},
-			})
-		end,
 	},
 	{
 		"nvim-mini/mini.surround",
@@ -148,49 +138,12 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
-		cmd = "Trouble",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
-			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
-	},
-	{
 		"stevearc/conform.nvim",
 		opts = {},
 	},
 	{
 		"folke/persistence.nvim",
-		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		event = "BufReadPre",
 		module = "persistence",
 		config = function()
 			require("persistence").setup()
@@ -198,10 +151,6 @@ require("lazy").setup({
 	},
 
 	-- UI
-	{
-		"folke/zen-mode.nvim",
-		opts = {},
-	},
 	{
 		"j-hui/fidget.nvim",
 		config = function()
@@ -215,12 +164,6 @@ require("lazy").setup({
 		config = function()
 			require("bamboo").setup()
 		end,
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
 	},
 	{
 		"nvim-lualine/lualine.nvim",
