@@ -123,6 +123,7 @@ require("lazy").setup({
 		ft = "markdown",
 		opts = {},
 	},
+	"rebelot/kanagawa.nvim",
 	{
 		"nvim-mini/mini.surround",
 		version = false,
