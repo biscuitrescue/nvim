@@ -5,8 +5,13 @@ local g = vim.g
 g.mapleader = " "
 g.maplocalleader = " "
 
+-- o.statusline = " | %{%v:lua.statusline_mode()%}"
+-- 	.. "| %P | %l:%c%V "
+-- 	.. "%=%h %m%r"
+-- 	.. "%{%v:lua.statusline_diagnostics()%} | %t | "
+
 o.winborder = "rounded"
-opt.shortmess = opt.shortmess + "at"
+opt.shortmess = opt.shortmess + "atI"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 o.encoding = "UTF-8"
@@ -23,10 +28,6 @@ opt.confirm = true
 opt.autoindent = true
 opt.expandtab = true
 opt.showmode = false
--- o.statusline = " | %{%v:lua.statusline_mode()%}"
--- 	.. "| %P | %l:%c%V "
--- 	.. "%=%h %m%r"
--- 	.. "%{%v:lua.statusline_diagnostics()%} | %t | "
 opt.linebreak = true
 opt.termguicolors = true
 opt.swapfile = false
