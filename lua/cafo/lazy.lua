@@ -117,12 +117,6 @@ require("lazy").setup({
 		priority = 1000,
 		build = "cargo build --release",
 	},
-
-	{
-		"tadmccorkle/markdown.nvim",
-		ft = "markdown",
-		opts = {},
-	},
 	"rebelot/kanagawa.nvim",
 	{
 		"nvim-mini/mini.surround",
