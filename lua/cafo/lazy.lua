@@ -117,7 +117,6 @@ require("lazy").setup({
 		priority = 1000,
 		build = "cargo build --release",
 	},
-	"rebelot/kanagawa.nvim",
 	{
 		"nvim-mini/mini.surround",
 		version = false,
