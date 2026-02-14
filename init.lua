@@ -85,7 +85,6 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#444444", bold = true })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NonText", { bg = "none", fg = "#999999" })
 -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
 
 require("cafo.remap")
@@ -95,4 +94,5 @@ require("cafo.langs")
 vim.cmd.colorscheme("vague")
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalNC", { b = "none" })
+vim.api.nvim_set_hl(0, "@ibl.indent.char.1", { fg = "#606079" })
