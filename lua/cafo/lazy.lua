@@ -146,18 +146,22 @@ require("lazy").setup({
 
 	-- UI
 	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
+	{
 		"j-hui/fidget.nvim",
 		config = function()
 			require("fidget").setup()
 		end,
 	},
 	{
-		"ribru17/bamboo.nvim",
+		"vague-theme/vague.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("bamboo").setup()
-		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
