@@ -8,18 +8,26 @@ g.maplocalleader = " "
 
 function _G.statusline_mode()
 	local mode_map = {
-		n = "NORMAL",
-		i = "INSERT",
-		v = "VISUAL",
+		n = "N",
+		i = "I",
+		v = "V",
 		V = "V-LINE",
 		["\22"] = "V-BLOCK",
-		c = "COMMAND",
-		R = "REPLACE",
-		t = "TERMINAL",
+		c = "C",
+		R = "R",
+		t = "T",
 	}
 
 	local mode = vim.api.nvim_get_mode().mode
 	return mode_map[mode] or mode
+end
+
+function _G.statusline_git()
+	local branch = vim.b.gitsigns_head
+	if branch then
+		return "%#Function#  " .. branch .. " %#StatusLine#"
+	end
+	return ""
 end
 
 function _G.statusline_diagnostics()
@@ -29,10 +37,21 @@ function _G.statusline_diagnostics()
 	return string.format(" E:%d W:%d ", errors, warns)
 end
 
-o.statusline = " | %{%v:lua.statusline_mode()%}"
-	.. "| %P | %l:%c%V "
-	.. "%=%h %m%r"
-	.. "%{%v:lua.statusline_diagnostics()%} | %t | "
+o.statusline = " |%#Statement# %{%v:lua.statusline_mode()%} "
+	.. "%#StatusLine#| "
+	.. "%#Identifier#%t "
+	.. "%#StatusLine#|"
+	.. "%#Constant#%{%v:lua.statusline_diagnostics()%}"
+	.. "%#StatusLine#|"
+	.. "%#Function#%{%v:lua.statusline_git()%} "
+	.. "%#StatusLine#"
+	.. "%="
+	.. "%#PreProc#%h%m%r "
+	.. "%#StatusLine#| "
+	.. "%#Type#%l:%c%V "
+	.. "%#StatusLine#| "
+	.. "%#Identifier#%P "
+	.. "%#StatusLine#| "
 
 o.winborder = "rounded"
 opt.shortmess = opt.shortmess + "atI"
