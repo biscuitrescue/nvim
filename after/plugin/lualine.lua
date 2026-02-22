@@ -1,87 +1,93 @@
-local sep = {
-	round = { left = "", right = "" },
-	slant = { left = "", right = "" },
-}
-
-local mode_map = {
-	n = "NORMAL",
-	i = "INSERT",
-	v = "VISUAL",
-	V = "V-LINE",
-	["\22"] = "V-BLOCK",
-	c = "COMMAND",
-	R = "REPLACE",
-	t = "TERMINAL",
-}
-
-local function nvchad_mode()
-	return " " .. (mode_map[vim.fn.mode()] or "UNKNOWN") .. ""
-end
-
-require("lualine").setup({
-	options = {
-		icons_enabled = true,
-		theme = "auto",
-		globalstatus = true,
-
-		-- IMPORTANT: disable defaults
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
-	},
-
-	sections = {
-		-- MODE (slanted on right)
-		lualine_a = {
-			{
-				nvchad_mode,
-				separator = { right = sep.slant.right },
-				padding = { left = 1, right = 1 },
-			},
-		},
-
-		-- LEFT INFO (rounded)
-		lualine_b = {
-			{
-				"branch",
-				icon = "",
-				separator = { left = sep.round.left, right = sep.round.right },
-			},
-			{
-				"diff",
-				symbols = { added = " ", modified = " ", removed = " " },
-				separator = { right = sep.round.right },
-			},
-		},
-
-		lualine_c = {
-			{
-				"filename",
-				path = 1,
-				symbols = { modified = "", readonly = " " },
-			},
-		},
-
-		-- RIGHT SIDE (flat)
-		lualine_x = {
-			{
-				"diagnostics",
-				symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
-				separator = { left = sep.round.left },
-			},
-			"filetype",
-		},
-
-		lualine_y = {
-			{
-				"progress",
-				separator = { left = sep.round.left },
-			},
-		},
-		lualine_z = {
-			{
-				"location",
-				separator = { left = sep.round.left },
-			},
-		},
-	},
-})
+-- local sep = {
+-- 	round = { left = "", right = "" },
+-- 	slant = { left = "", right = "" },
+-- }
+--
+-- local mode_map = {
+-- 	n = "NORMAL",
+-- 	i = "INSERT",
+-- 	v = "VISUAL",
+-- 	V = "V-LINE",
+-- 	["\22"] = "V-BLOCK",
+-- 	c = "COMMAND",
+-- 	R = "REPLACE",
+-- 	t = "TERMINAL",
+-- }
+--
+-- local function nvchad_mode()
+-- 	return " " .. (mode_map[vim.fn.mode()] or "UNKNOWN") .. ""
+-- end
+--
+-- require("lualine").setup({
+-- 	options = {
+-- 		icons_enabled = true,
+-- 		theme = "auto",
+-- 		globalstatus = true,
+--
+-- 		-- IMPORTANT: disable defaults
+-- 		section_separators = { left = "", right = "" },
+-- 		component_separators = { left = "", right = "" },
+-- 	},
+--
+-- 	sections = {
+-- 		-- MODE (slanted on right)
+-- 		lualine_a = {
+-- 			{
+-- 				nvchad_mode,
+-- 				separator = { right = sep.slant.right },
+-- 				padding = { left = 1, right = 1 },
+-- 			},
+-- 		},
+--
+-- 		-- LEFT INFO (rounded)
+-- 		lualine_b = {
+-- 			{
+-- 				"branch",
+-- 				icon = "",
+-- 				separator = { left = sep.round.left, right = sep.round.right },
+-- 			},
+-- 			{
+-- 				"diff",
+-- 				symbols = { added = " ", modified = " ", removed = " " },
+-- 				separator = { right = sep.round.right },
+-- 			},
+-- 		},
+--
+-- 		lualine_c = {
+-- 			{
+-- 				"filename",
+-- 				-- color = { fg = "#1c1c1c", bg = "#6c99ba", gui = "bold" }, -- change these
+-- 				path = 1,
+-- 				symbols = { modified = "", readonly = " " },
+-- 				separator = { right = sep.round.right },
+-- 			},
+-- 		},
+--
+-- 		-- RIGHT SIDE (flat)
+-- 		lualine_x = {
+-- 			{
+-- 				"diagnostics",
+-- 				symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
+-- 				separator = { left = sep.round.left },
+-- 			},
+-- 			{
+-- 				"filetype",
+-- 				-- color = { fg = "#1c1c1c", bg = "#6c99ba", gui = "bold" }, -- change these
+-- 				separator = { left = sep.round.left },
+-- 			},
+-- 		},
+--
+-- 		lualine_y = {
+-- 			{
+-- 				"progress",
+-- 				separator = { left = sep.round.left },
+-- 			},
+-- 		},
+-- 		lualine_z = {
+-- 			{
+-- 				"location",
+-- 				separator = { left = sep.round.left },
+-- 			},
+-- 		},
+-- 	},
+-- })

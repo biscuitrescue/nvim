@@ -44,44 +44,26 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
+	},
+	{
 		"altermo/ultimate-autopair.nvim",
 		event = { "InsertEnter", "CmdlineEnter" },
 		branch = "v0.6",
 		opts = {},
 	},
 	{
-		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-mini/mini.icons" },
-		---@module "fzf-lua"
-		---@type fzf-lua.Config|{}
-		---@diagnostics disable: missing-fields
-		opts = {},
-		---@diagnostics enable: missing-fields
-	},
-	{
-		"bassamsdata/namu.nvim",
-		opts = {
-			global = {},
-			namu_symbols = { -- Specific Module options
-				options = {},
-			},
+		"nvim-telescope/telescope.nvim",
+		version = "*",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			-- optional but recommended
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
-		vim.keymap.set("n", "<leader>ss", ":Namu symbols<cr>", {
-			desc = "Jump to LSP symbol",
-			silent = true,
-		}),
-		vim.keymap.set("n", "<leader>xx", ":Namu diagnostics workspace<cr>", {
-			desc = "LSP Symbols - Workspace",
-			silent = true,
-		}),
-		vim.keymap.set("n", "<leader>xX", ":Namu diagnostics buffers<cr>", {
-			desc = "LSP Symbols - Workspace",
-			silent = true,
-		}),
-		vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", {
-			desc = "LSP Symbols - Workspace",
-			silent = true,
-		}),
 	},
 	{
 		"otavioschwanck/arrow.nvim",
@@ -153,21 +135,17 @@ require("lazy").setup({
 		opts = {},
 	},
 	{
+		"xiantang/darcula-dark.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+	{
 		"j-hui/fidget.nvim",
 		config = function()
 			require("fidget").setup()
 		end,
 	},
-	{
-		"vague-theme/vague.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-mini/mini.icons" },
-		config = function()
-			require("lualine").setup()
-		end,
-	},
+	"rockerBOO/boo-colorscheme-nvim",
+	{ "ntk148v/habamax.nvim", dependencies = { "rktjmp/lush.nvim" } },
 })
