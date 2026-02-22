@@ -34,7 +34,6 @@ require("lazy").setup({
 		build = ":TSUpdate",
 	},
 	-- git
-	"tpope/vim-fugitive",
 	"nvim-lua/plenary.nvim",
 	{
 		"lewis6991/gitsigns.nvim",
