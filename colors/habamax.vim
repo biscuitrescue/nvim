@@ -148,6 +148,13 @@ hi WildMenu guifg=#1c1c1c guibg=#d7af87 guisp=NONE gui=bold ctermfg=234 ctermbg=
 hi debugBreakpoint guifg=#1c1c1c guibg=#d75f87 guisp=NONE gui=NONE ctermfg=234 ctermbg=168 cterm=NONE term=NONE
 hi debugPC guifg=#1c1c1c guibg=#5f87af guisp=NONE gui=NONE ctermfg=234 ctermbg=67 cterm=NONE term=NONE
 hi lCursor guifg=#1c1c1c guibg=#5fff00 guisp=NONE gui=NONE ctermfg=234 ctermbg=82 cterm=NONE term=NONE
+hi Normal guibg=NONE
+hi NormalFloat guibg=NONE
+hi Visual guibg=#444444 guifg=NONE
+hi LineNrAbove guifg=#808080
+hi LineNrBelow guifg=#808080
+hi LineNr guifg=#e5b566
+hi StatusLine guifg=#d0d0d0 guibg=#303030
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
