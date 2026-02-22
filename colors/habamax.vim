@@ -155,6 +155,8 @@ hi LineNrAbove guifg=#808080
 hi LineNrBelow guifg=#808080
 hi LineNr guifg=#e5b566
 hi StatusLine guifg=#d0d0d0 guibg=#303030
+hi BlinkCmpMenu guibg=NONE
+hi BlinkCmpMenuBorder guibg=NONE
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
