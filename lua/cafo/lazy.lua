@@ -17,7 +17,6 @@ require("lazy").setup({
 		lazy = false,
 	},
 
-	"numToStr/FTerm.nvim",
 	"numToStr/Comment.nvim",
 
 	{
