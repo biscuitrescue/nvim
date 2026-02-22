@@ -1,6 +1,7 @@
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
+local set = vim.api.nvim_set_hl
 
 g.mapleader = " "
 g.maplocalleader = " "
@@ -106,16 +107,19 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 
 opt.completeopt = { "menu", "menuone", "noselect" }
 
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#e5b566" })
-
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
 
-vim.cmd.colorscheme("habamax.nvim")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "#aeae98" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#aeae98" })
-vim.api.nvim_set_hl(0, "StatusLine", { fg = "#d0d0d0", bg = "#1c1c1c", bold = false })
+vim.cmd.colorscheme("habamax")
+set(0, "Normal", { bg = "none" })
+set(0, "NormalFloat", { bg = "none" })
+set(0, "BlinkCmpMenu", { fg = "#aeae98" })
+set(0, "BlinkCmpMenuBorder", { fg = "#aeae98" })
+set(0, "Visual", { fg = "#e5b566", bg = "#505050" })
+set(0, "EndOfBuffer", { bg = "none" })
+set(0, "LineNr", { fg = "#e5b566" })
+set(0, "LineNrAbove", { fg = "#808080" })
+set(0, "LineNrBelow", { fg = "#808080" })
+set(0, "Visual", { fg = "NONE", bg = "#444444" })
+set(0, "StatusLine", { fg = "#d0d0d0", bg = "#303030", bold = false })

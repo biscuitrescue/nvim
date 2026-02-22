@@ -135,17 +135,9 @@ require("lazy").setup({
 		opts = {},
 	},
 	{
-		"xiantang/darcula-dark.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-	},
-	{
 		"j-hui/fidget.nvim",
 		config = function()
 			require("fidget").setup()
 		end,
 	},
-	"rockerBOO/boo-colorscheme-nvim",
-	{ "ntk148v/habamax.nvim", dependencies = { "rktjmp/lush.nvim" } },
 })
