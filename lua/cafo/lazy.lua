@@ -43,6 +43,21 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"NeogitOrg/neogit",
+		lazy = true,
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+
+			"sindrets/diffview.nvim", -- optional
+
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+		cmd = "Neogit",
+		keys = {
+			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
+		},
+	},
+	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
 		---@module 'render-markdown'
