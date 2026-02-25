@@ -41,21 +41,21 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
-	{
-		"NeogitOrg/neogit",
-		lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-
-			"sindrets/diffview.nvim", -- optional
-
-			"nvim-telescope/telescope.nvim", -- optional
-		},
-		cmd = "Neogit",
-		keys = {
-			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
-		},
-	},
+	-- {
+	-- 	"NeogitOrg/neogit",
+	-- 	lazy = true,
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim", -- required
+	--
+	-- 		"sindrets/diffview.nvim", -- optional
+	--
+	-- 		"nvim-telescope/telescope.nvim", -- optional
+	-- 	},
+	-- 	cmd = "Neogit",
+	-- 	keys = {
+	-- 		{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
+	-- 	},
+	-- },
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
@@ -78,17 +78,6 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 	},
-	{
-		"otavioschwanck/arrow.nvim",
-		dependencies = {
-			{ "nvim-mini/mini.icons" },
-		},
-		opts = {
-			show_icons = true,
-			leader_key = ",", -- Recommended to be a single key
-			buffer_leader_key = "m", -- Per Buffer Mappings
-		},
-	},
 
 	{
 		"notjedi/nvim-rooter.lua",
@@ -97,13 +86,6 @@ require("lazy").setup({
 		end,
 	},
 	-- LSP
-	{
-		"jinzhongjia/LspUI.nvim",
-		branch = "main",
-		config = function()
-			require("LspUI").setup({})
-		end,
-	},
 
 	{ "neovim/nvim-lspconfig" },
 	{
@@ -130,23 +112,9 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-	{
-		"folke/persistence.nvim",
-		event = "BufReadPre",
-		module = "persistence",
-		config = function()
-			require("persistence").setup()
-		end,
-	},
 
 	-- UI
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+	{ "nvim-mini/mini.hipatterns", version = false },
 	{
 		"j-hui/fidget.nvim",
 		config = function()

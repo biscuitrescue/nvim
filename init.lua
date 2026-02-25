@@ -53,7 +53,7 @@ o.statusline = " |%#Statement# %{%v:lua.statusline_mode()%} "
 	.. "%#Identifier#%P "
 	.. "%#StatusLine#| "
 
-o.winborder = "rounded"
+o.winborder = "none"
 opt.shortmess = opt.shortmess + "atI"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
