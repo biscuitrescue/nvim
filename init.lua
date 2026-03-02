@@ -1,7 +1,6 @@
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
-local set = vim.api.nvim_set_hl
 
 g.mapleader = " "
 g.maplocalleader = " "

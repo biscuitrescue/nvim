@@ -114,7 +114,9 @@ require("lazy").setup({
 	},
 
 	-- UI
-	{ "nvim-mini/mini.hipatterns", version = false },
+	"casedami/neomodern.nvim",
+	{ "nvim-mini/mini.cursorword", version = false, lazy = false },
+	{ "nvim-mini/mini.hipatterns", version = false, lazy = false },
 	{
 		"j-hui/fidget.nvim",
 		config = function()
