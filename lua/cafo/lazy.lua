@@ -30,7 +30,6 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
-		branch = "main",
 		build = ":TSUpdate",
 	},
 	-- git
@@ -99,6 +98,26 @@ require("lazy").setup({
 	},
 
 	-- UI
+	{
+		"beauwilliams/statusline.lua",
+		dependencies = { "nvim-lua/lsp-status.nvim" },
+		config = function()
+			require("statusline").setup({
+				match_colorscheme = true, -- Enable colorscheme inheritance (Default: false)
+				tabline = true, -- Enable the tabline (Default: true)
+				lsp_diagnostics = true, -- Enable Native LSP diagnostics (Default: true)
+				ale_diagnostics = false, -- Enable ALE diagnostics (Default: false)
+			})
+		end,
+	},
+	"rebelot/kanagawa.nvim",
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
 	{ "nvim-mini/mini.cursorword", version = false, lazy = false },
 	{ "nvim-mini/mini.hipatterns", version = false, lazy = false },
 	{

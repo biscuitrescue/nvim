@@ -36,6 +36,10 @@ function _G.statusline_diagnostics()
 	return string.format(" E:%d W:%d ", errors, warns)
 end
 
+if vim.g.neovide then
+	vim.o.guifont = "Monaspace Argon NF:h14" -- text below applies for VimScript
+end
+
 o.statusline = " |%#Statement# %{%v:lua.statusline_mode()%} "
 	.. "%#StatusLine#| "
 	.. "%#Identifier#%t "
@@ -128,5 +132,3 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
-
-vim.cmd.colorscheme("habamax")

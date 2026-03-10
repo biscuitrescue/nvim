@@ -126,8 +126,8 @@ hi SpellCap guifg=NONE guibg=NONE guisp=#ffaf5f gui=undercurl ctermfg=215 ctermb
 hi SpellLocal guifg=NONE guibg=NONE guisp=#5fd75f gui=undercurl ctermfg=77 ctermbg=NONE cterm=underline term=underline
 hi SpellRare guifg=NONE guibg=NONE guisp=#d787d7 gui=undercurl ctermfg=176 ctermbg=NONE cterm=underline term=underline
 hi Statement guifg=#af87af guibg=NONE guisp=NONE gui=NONE ctermfg=139 ctermbg=NONE cterm=NONE term=NONE
-hi StatusLine guifg=#1c1c1c guibg=#9e9e9e guisp=NONE gui=NONE ctermfg=234 ctermbg=247 cterm=NONE term=bold,reverse
-hi StatusLineNC guifg=#1c1c1c guibg=#767676 guisp=NONE gui=NONE ctermfg=234 ctermbg=243 cterm=NONE term=bold,underline
+hi StatusLine guibg=#1c1c1c guifg=#9e9e9e guisp=NONE gui=NONE ctermfg=234 ctermbg=247 cterm=NONE term=bold,reverse
+hi StatusLineNC guibg=#1c1c1c guifg=#767676 guisp=NONE gui=NONE ctermfg=234 ctermbg=243 cterm=NONE term=bold,underline
 hi String guifg=#5faf5f guibg=NONE guisp=NONE gui=NONE ctermfg=71 ctermbg=NONE cterm=NONE term=NONE
 hi TabLine guifg=#1c1c1c guibg=#767676 guisp=NONE gui=NONE ctermfg=234 ctermbg=243 cterm=NONE term=bold,underline
 hi TabLineFill guifg=#1c1c1c guibg=#767676 guisp=NONE gui=NONE ctermfg=234 ctermbg=243 cterm=NONE term=NONE
@@ -154,7 +154,6 @@ hi Visual guibg=#444444 guifg=NONE
 hi LineNrAbove guifg=#808080
 hi LineNrBelow guifg=#808080
 hi LineNr guifg=#e5b566
-hi StatusLine guifg=#d0d0d0 guibg=#303030
 hi BlinkCmpMenu guibg=NONE
 hi BlinkCmpMenuBorder guibg=NONE
 

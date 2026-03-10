@@ -5,3 +5,9 @@ vim.keymap.set("n", "<leader>a", function()
 end, { silent = true, buffer = bufnr })
 vim.keymap.set("n", "<leader>b", ":Cargo build<CR>")
 vim.keymap.set("n", "<leader>c", ":Cargo check<CR>")
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "rs" },
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
