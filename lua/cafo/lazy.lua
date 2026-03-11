@@ -20,6 +20,9 @@ require("lazy").setup({
 	"numToStr/Comment.nvim",
 
 	{
+		{ "akinsho/toggleterm.nvim", version = "*", config = true },
+	},
+	{
 		"stevearc/oil.nvim",
 		---@module 'oil'
 		---@type oil.SetupOpts
@@ -98,18 +101,6 @@ require("lazy").setup({
 	},
 
 	-- UI
-	-- {
-	-- 	"beauwilliams/statusline.lua",
-	-- 	dependencies = { "nvim-lua/lsp-status.nvim" },
-	-- 	config = function()
-	-- 		require("statusline").setup({
-	-- 			match_colorscheme = true, -- Enable colorscheme inheritance (Default: false)
-	-- 			tabline = true, -- Enable the tabline (Default: true)
-	-- 			lsp_diagnostics = true, -- Enable Native LSP diagnostics (Default: true)
-	-- 			ale_diagnostics = false, -- Enable ALE diagnostics (Default: false)
-	-- 		})
-	-- 	end,
-	-- },
 	"rebelot/kanagawa.nvim",
 	{
 		"lukas-reineke/indent-blankline.nvim",
