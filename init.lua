@@ -37,7 +37,7 @@ function _G.statusline_diagnostics()
 end
 
 if vim.g.neovide then
-	vim.o.guifont = "Monaspace Argon NF:h14"
+	vim.o.guifont = "Monaspace Argon NF:h13.5"
 end
 
 o.statusline = " |%#Statement# %{%v:lua.statusline_mode()%} "
