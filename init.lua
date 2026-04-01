@@ -64,7 +64,7 @@ o.encoding = "UTF-8"
 opt.ignorecase = true
 opt.smartcase = true
 opt.nu = true
-opt.rnu = true
+opt.rnu = false
 o.mouse = "a"
 opt.clipboard = "unnamedplus"
 opt.shiftwidth = 4
@@ -132,3 +132,5 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
+vim.cmd.colorscheme("alabaster")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

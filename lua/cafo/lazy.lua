@@ -20,9 +20,6 @@ require("lazy").setup({
 	"numToStr/Comment.nvim",
 
 	{
-		{ "akinsho/toggleterm.nvim", version = "*", config = true },
-	},
-	{
 		"stevearc/oil.nvim",
 		---@module 'oil'
 		---@type oil.SetupOpts
@@ -101,7 +98,9 @@ require("lazy").setup({
 	},
 
 	-- UI
-	"rebelot/kanagawa.nvim",
+
+	"dchinmay2/alabaster.nvim",
+
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
