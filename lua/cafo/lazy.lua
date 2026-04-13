@@ -98,16 +98,7 @@ require("lazy").setup({
 	},
 
 	-- UI
-
-	"dchinmay2/alabaster.nvim",
-
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
+	{ "nvim-mini/mini.statusline", version = false, lazy = false },
 	{ "nvim-mini/mini.cursorword", version = false, lazy = false },
 	{ "nvim-mini/mini.hipatterns", version = false, lazy = false },
 	{

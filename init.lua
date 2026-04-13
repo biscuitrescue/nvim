@@ -5,6 +5,8 @@ local g = vim.g
 g.mapleader = " "
 g.maplocalleader = " "
 
+require("vim._core.ui2").enable()
+
 function _G.statusline_mode()
 	local mode_map = {
 		n = "N",
@@ -16,15 +18,13 @@ function _G.statusline_mode()
 		R = "R",
 		t = "T",
 	}
-
-	local mode = vim.api.nvim_get_mode().mode
-	return mode_map[mode] or mode
+	return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
 end
 
 function _G.statusline_git()
 	local branch = vim.b.gitsigns_head
 	if branch then
-		return "%#Function#  " .. branch .. " %#StatusLine#"
+		return "%#Function#  " .. branch .. " %#StatusLine#"
 	end
 	return ""
 end
@@ -32,7 +32,6 @@ end
 function _G.statusline_diagnostics()
 	local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 	local warns = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-
 	return string.format(" E:%d W:%d ", errors, warns)
 end
 
@@ -91,15 +90,24 @@ opt.background = "dark"
 opt.conceallevel = 2
 opt.laststatus = 3
 
+local sev = vim.diagnostic.severity
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = "", -- remove weird leading symbols
+		prefix = "",
 		spacing = 1,
 	},
 	float = false,
-	signs = true,
 	underline = true,
 	update_in_insert = false,
+	severity_sort = true,
+	signs = {
+		text = {
+			[sev.ERROR] = "E",
+			[sev.WARN] = "W",
+			[sev.INFO] = "I",
+			[sev.HINT] = "H",
+		},
+	},
 })
 
 vim.filetype.add({
@@ -118,8 +126,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-	pattern = { "*" },
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*",
 	callback = function()
 		if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
 			vim.api.nvim_exec("normal! g'\"", false)
@@ -132,5 +140,5 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
-vim.cmd.colorscheme("alabaster")
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd.colorscheme("onyx")
+-- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

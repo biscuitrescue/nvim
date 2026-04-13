@@ -151,9 +151,9 @@ hi lCursor guifg=#1c1c1c guibg=#5fff00 guisp=NONE gui=NONE ctermfg=234 ctermbg=8
 hi Normal guibg=NONE
 hi NormalFloat guibg=NONE
 hi Visual guibg=#444444 guifg=NONE
+hi LineNr guifg=#e5b566
 hi LineNrAbove guifg=#808080
 hi LineNrBelow guifg=#808080
-hi LineNr guifg=#e5b566
 hi BlinkCmpMenu guibg=NONE
 hi BlinkCmpMenuBorder guibg=NONE
 
