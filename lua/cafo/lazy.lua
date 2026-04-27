@@ -74,9 +74,27 @@ require("lazy").setup({
 	{ "neovim/nvim-lspconfig" },
 	{
 		"saghen/blink.cmp",
-		lazy = false,
-		priority = 1000,
-		build = "cargo build --release",
+		dependencies = {
+			"saghen/blink.lib",
+		},
+		build = function()
+			require("blink.cmp").build():wait(60000)
+		end,
+
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			completion = { documentation = { auto_show = false } },
+			sources = { default = { "lsp", "path", "snippets", "buffer" } },
+			fuzzy = { implementation = "rust" },
+			keymap = {
+				preset = "enter",
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<C-p>"] = { "snippet_forward", "fallback_to_mappings" },
+				["<C-n>"] = { "snippet_backward", "fallback_to_mappings" },
+			},
+		},
 	},
 	{
 		"nvim-mini/mini.surround",
