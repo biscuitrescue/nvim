@@ -116,6 +116,10 @@ require("lazy").setup({
 	},
 
 	-- UI
+	{
+		"folke/zen-mode.nvim",
+		opts = {},
+	},
 	{ "nvim-mini/mini.statusline", version = false, lazy = false },
 	{ "nvim-mini/mini.cursorword", version = false, lazy = false },
 	{ "nvim-mini/mini.hipatterns", version = false, lazy = false },
