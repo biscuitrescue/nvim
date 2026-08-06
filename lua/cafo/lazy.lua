@@ -79,22 +79,16 @@ require("lazy").setup({
 			"saghen/blink.lib",
 		},
 		build = function()
-			require("blink.cmp").build():wait(60000)
+			require("blink.cmp").build():pwait()
 		end,
 
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
+			keymap = { preset = "enter" },
 			completion = { documentation = { auto_show = false } },
 			sources = { default = { "lsp", "path", "snippets", "buffer" } },
 			fuzzy = { implementation = "rust" },
-			keymap = {
-				preset = "enter",
-				["<Tab>"] = { "select_next", "fallback" },
-				["<S-Tab>"] = { "select_prev", "fallback" },
-				["<C-p>"] = { "snippet_forward", "fallback_to_mappings" },
-				["<C-n>"] = { "snippet_backward", "fallback_to_mappings" },
-			},
 		},
 	},
 	{
