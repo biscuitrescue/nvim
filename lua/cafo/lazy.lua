@@ -70,6 +70,32 @@ require("lazy").setup({
 			require("nvim-rooter").setup()
 		end,
 	},
+	-- ORG
+	{
+		"nvim-orgmode/orgmode",
+		event = "VeryLazy",
+		ft = { "org" },
+		config = function()
+			-- Setup orgmode
+			require("orgmode").setup({
+				org_agenda_files = "~/orgfiles/**/*",
+				org_default_notes_file = "~/orgfiles/refile.org",
+			})
+
+			-- Experimental LSP support
+			vim.lsp.enable("org")
+		end,
+	},
+	{
+		"kawre/leetcode.nvim",
+		build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {},
+	},
 	-- LSP
 
 	{ "neovim/nvim-lspconfig" },
