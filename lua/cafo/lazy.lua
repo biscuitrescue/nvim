@@ -33,7 +33,19 @@ require("lazy").setup({
 		build = ":TSUpdate",
 	},
 	-- git
-	"tpope/vim-fugitive",
+	{
+		"NeogitOrg/neogit",
+		lazy = true,
+		dependencies = {
+			"esmuellert/codediff.nvim", -- optional
+			"m00qek/baleia.nvim",
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+		cmd = "Neogit",
+		keys = {
+			{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
+		},
+	},
 	"nvim-lua/plenary.nvim",
 	{
 		"lewis6991/gitsigns.nvim",
@@ -88,7 +100,7 @@ require("lazy").setup({
 	},
 	{
 		"kawre/leetcode.nvim",
-		build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+		build = ":TSUpdate html",
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim",
@@ -96,9 +108,32 @@ require("lazy").setup({
 		},
 		opts = {},
 	},
-	-- LSP
 
 	{ "neovim/nvim-lspconfig" },
+	{
+		"romus204/referencer.nvim",
+		config = function()
+			require("referencer").setup()
+		end,
+	},
+	{
+		"bassamsdata/namu.nvim",
+		opts = {
+			global = {},
+			namu_symbols = { -- Specific Module options
+				options = {},
+			},
+		},
+		-- === Suggested Keymaps: ===
+		vim.keymap.set("n", "<leader>ss", ":Namu symbols<cr>", {
+			desc = "Jump to LSP symbol",
+			silent = true,
+		}),
+		vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", {
+			desc = "LSP Symbols - Workspace",
+			silent = true,
+		}),
+	},
 	{
 		"saghen/blink.cmp",
 		dependencies = {
@@ -117,6 +152,8 @@ require("lazy").setup({
 			fuzzy = { implementation = "rust" },
 		},
 	},
+
+	-- mini
 	{
 		"nvim-mini/mini.surround",
 		version = false,

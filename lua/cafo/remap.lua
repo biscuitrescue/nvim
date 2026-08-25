@@ -12,8 +12,8 @@ set("n", "<leader>lf", function()
 	vim.lsp.buf.format()
 end, opts)
 
-set({ "n", "v", "x" }, "<C-a>", "^")
-set({ "n", "v", "x" }, "<C-e>", "$")
+set({ "n", "v", "x" }, "<A-w>", "^")
+set({ "n", "v", "x" }, "<A-e>", "$")
 
 set({ "n", "v", "x" }, "<leader>z", "<cmd>ZenMode<CR>")
 
