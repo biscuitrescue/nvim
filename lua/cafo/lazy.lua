@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- nav/editing
 	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
@@ -31,6 +32,20 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		build = ":TSUpdate",
+	},
+	{
+		"altermo/ultimate-autopair.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+		branch = "v0.6",
+		opts = {},
+	},
+
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 	-- git
 	{
@@ -53,19 +68,7 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" }, -- if you use standalone mini plugins
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
-		opts = {},
-	},
-	{
-		"altermo/ultimate-autopair.nvim",
-		event = { "InsertEnter", "CmdlineEnter" },
-		branch = "v0.6",
-		opts = {},
-	},
+	-- search
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "*",
@@ -98,6 +101,7 @@ require("lazy").setup({
 			vim.lsp.enable("org")
 		end,
 	},
+	-- leetcode
 	{
 		"kawre/leetcode.nvim",
 		build = ":TSUpdate html",
@@ -109,6 +113,7 @@ require("lazy").setup({
 		opts = {},
 	},
 
+	-- lsp
 	{ "neovim/nvim-lspconfig" },
 	{
 		"romus204/referencer.nvim",
@@ -124,7 +129,6 @@ require("lazy").setup({
 				options = {},
 			},
 		},
-		-- === Suggested Keymaps: ===
 		vim.keymap.set("n", "<leader>ss", ":Namu symbols<cr>", {
 			desc = "Jump to LSP symbol",
 			silent = true,
@@ -134,6 +138,7 @@ require("lazy").setup({
 			silent = true,
 		}),
 	},
+	-- completion
 	{
 		"saghen/blink.cmp",
 		dependencies = {
