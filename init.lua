@@ -135,6 +135,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.opt.laststatus = 3
+	end,
+})
+
 opt.completeopt = { "menu", "menuone", "noselect" }
 
 require("cafo.remap")
