@@ -51,4 +51,4 @@ hipatterns.setup({
 		hex_color = hipatterns.gen_highlighter.hex_color(),
 	},
 })
--- require("mini.statusline").setup()
+require("mini.statusline").setup()

@@ -90,6 +90,10 @@ opt.background = "dark"
 opt.conceallevel = 2
 opt.laststatus = 3
 
+if vim.g.neovide then
+	vim.o.guifont = "Monaspace Neon Frozen:h12" -- text below applies for VimScript
+end
+
 local sev = vim.diagnostic.severity
 vim.diagnostic.config({
 	virtual_text = {
@@ -146,5 +150,5 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 require("cafo.remap")
 require("cafo.lazy")
 require("cafo.langs")
-vim.cmd.colorscheme("onyx")
+vim.cmd.colorscheme("alabaster-mod")
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
